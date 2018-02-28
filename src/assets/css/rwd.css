@@ -1,0 +1,507 @@
+
+@media screen and (max-width: 1025px) and (min-width: 1024px) {
+
+.fact-icon {
+    width: 100%;
+    text-align: center;
+}
+.fact-text {
+    width: 100%;
+    margin-left: 0;
+    text-align: center;
+}
+.reservation-form .col-md-6 {
+    width: 100%;
+}
+.res-car-d a {
+    margin-top: 67px!important;
+}
+
+}
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+a#logo img {
+    max-width: 100%;
+    height: auto;
+}
+.innerheader #logo {
+    padding: 15px 10px 0;
+}
+.top-contact {
+    padding-left: 40px;
+}
+.top-contact li {
+    margin-right: 10px;
+   font-size: 12px;
+}
+ul.topbar-right li {
+    margin-right: 10px;
+}
+.topbar-right li a {
+    font-size: 12px;
+}
+.innerheader .topbar:after {
+    border-width: 52px 0 0 50px;
+}
+.innerheader nav {
+    padding: 10px 10px 10px 10px;
+}
+.innerheader nav ul li {
+    padding: 0px 20px 0px 0px;
+}
+.innerheader nav ul li a {
+    font-size: 13px;
+}
+.res-tab {
+	margin-bottom: 10px;
+	    display: inline-block;
+}
+.label-form label {
+    width: 30%;
+    font-size: 10px;
+}
+.label-form {
+    padding: 0px 10px;
+}
+.label-select {
+    width: 100%;
+}
+.map-icon {
+    display: inline-block;
+    width: 68%;
+}
+.innerheader {
+    margin-top: 10px;
+}
+.slider-form-main {
+    top: 160px;
+}
+.slider-form {
+    padding: 10px 10px;
+}
+.label-form .form-group, .label-form, .label-select {
+    margin-bottom: 10px;
+}
+.home-services {
+    padding: 30px 0 30px;
+}
+.home3cars .cars {
+    height: 80px;
+    position: absolute;
+    bottom: 0;
+    left: 5px;
+    z-index: 9;
+    width: 100%;
+    background-size: 100% 100%;
+}
+.home-services .row .col-md-4 .content-box.orange-box {
+    padding: 60px 10px !important;
+}
+.home-services .content-box {
+	padding: 60px 10px !important;
+}
+.home-aboutarea {
+    padding: 30px 0!important;
+    margin: 20px 0!important;
+}
+.home-aboutarea img {
+max-width: 100%;
+height: auto;
+ }
+ .home-heading h4 {
+    margin-bottom: 25px;
+}
+.slick-arrow {
+display: none!important;
+}
+#section-rentcarea .slick-initialized .slick-slide {
+    padding: 30px 0;
+}
+.how-can-work {
+    padding: 30px 0;
+}
+.how-boxes .content-box {
+    padding: 25px 10px 25px;
+}
+.news-areas {
+    margin: 30px 0;
+}
+.happy-client {
+    padding: 40px 0;
+    height: 390px;
+}
+.happy-client .slick-slider {
+    width: 100%;
+}
+footer img {
+    max-width: 100%;
+    height: auto;
+}
+footer {
+	background-size: cover;
+}
+.inner-banner img {
+    max-width: 100%;
+    height: 300px;
+}
+section.client-satisfied {
+    padding: 30px 0;
+}
+.fact-bx {
+    margin-bottom: 20px;
+}
+.Professional-Trainers {
+    padding: 30px 0 30px;
+}
+.listing-search h2 {
+    font-size: 26px;
+}
+.listing-search {
+    margin-bottom: 15px;
+}
+.listing-pagi {
+    margin-top: 15px;
+}
+.listing-main {
+    padding: 30px 0px 30px;
+}
+.service-main {
+    padding: 30px 0px 30px;
+}
+.how-work-main {
+    padding: 30px 0px 30px;
+}
+.how-work-icon {
+    position: inherit;
+    width: 100%;
+    display: inline-block;
+    top: 0;
+    margin-bottom: 20px;
+}
+.news-main {
+    padding: 30px 0px;
+}
+.listing-details-main {
+    padding: 30px 0px;
+}
+.book-form {
+    padding: 30px 0px;
+}
+.ldetail-list-main {
+    padding: 30px 0px;
+}
+.reservation-list-main #tabs-container {
+    margin: 0;
+    width: 100%;
+}
+.reservation-list-main .tabs-menu li {
+    margin: 0px 0px 30px 5px;
+    width: 49%;
+    display: inline-block;
+}
+.reservation-tab-main #tabs-container {
+    margin: 0;
+    width: 100%;
+}
+.res-select-bx select {
+    width: 222px;
+}
+
+.res-car-d a {
+    margin-top: 0;
+}
+}
+
+@media screen and (max-width: 767px) and (min-width: 320px) {
+
+.innerheader nav {
+    display: none;
+}
+
+.innerheader {
+   display: none;
+}
+.innerheader #logo {
+	display: none;	
+}
+.innerheader .topbar {
+    position: initial;
+}
+.reserv-btn {
+    margin-top: 20px;
+}
+.logo-res {
+    display: block;
+    text-align: center;
+    padding: 10px 0px;
+    background: rgba(255, 255, 255, 1);
+    margin: 10px 0px;
+}
+.slider-form {
+    padding: 10px 10px;
+    width: 100%;
+    float: left;
+    margin: 20px 0px;
+    background-color: #76a1c1;
+}
+.slider-form-main {
+    top: 0;
+    position: inherit;
+}
+header .slide-item {
+    height: 200px!important;
+}
+.label-form {
+    padding: 0px 10px;
+}
+.label-form label {
+    width: 100%;
+        margin: 10px 0px 0px;
+
+}
+.label-form {
+line-height: normal;
+
+}
+
+.map-icon {
+    width: 100%;
+}
+.label-form .map-icon input {
+	border-left: 0px;
+	padding-left: 0px;
+
+}
+.label-select {
+    width: 100%;
+    margin-bottom: 10px;
+}
+.label-form .form-group, .label-form  {
+    margin-bottom: 10px;
+}
+.promo-feild-btn input {
+    width: 100%;
+}
+.promo-feild-btn .form-btn {
+    margin-top: 10px;
+    float: none!important;
+}
+.rentcar-slider img {
+    margin-bottom: 10px;
+}
+.home-services {
+    padding: 10px 0 10px;
+}
+.home-services .row .col-md-4 {
+    margin: 0px !important;
+    padding: 0px 15px !important;
+    position: inherit;
+}
+.home-services .content-box {
+    padding: 20px 15px !important;
+    background: #02528a;
+    min-height: 310px;
+}
+.home-services .row .col-md-4 .content-box.orange-box {
+    position: inherit;
+    padding: 20px 15px !important;
+    border: 10px solid #fff;
+    width: 100%;
+    min-height: 310px;
+    left: 0;
+    top: 0;
+    margin: 20px 0px;
+}
+.home-services h4 {
+    margin-bottom: 20px;
+}
+.home3cars .cars {
+	display: none;
+}
+.home-aboutarea {
+    padding: 20px 0!important;
+    margin: 20px 0!important;
+}
+.home-aboutarea img {
+    max-width: 100%;
+    height: auto;
+}
+
+.home-aboutarea .col-md-6 h2 {
+    margin-top: 20px!important;
+}
+.home-heading h4 {
+    margin-bottom: 25px;
+}
+.slick-arrow {
+display: none!important;
+}
+#section-rentcarea .slick-initialized .slick-slide {
+    padding: 25px 0!important;
+}
+.how-can-work {
+    padding: 30px 0;
+}
+.how-boxes .content-box {
+    padding: 20px 15px 20px;
+    margin-bottom: 20px;
+}
+.news-areas {
+    margin: 30px 0;
+}
+.newsboxes .content-box {
+    padding: 20px 10px 20px;
+    margin-bottom: 20px;
+}
+.happy-client {
+    position: initial;
+	    padding: 20px 0;
+}
+.happy-client .slick-slider {
+    width: 100%;
+}
+.subsciber-area .wysija-submit {
+    position: inherit!important;
+}
+footer {
+    padding: 30px 0;
+    background-size: cover;
+}
+footer img {
+	max-width: 100%;
+	height: auto;
+}
+header .innerbanner-content .container {
+    position: inherit;
+}
+header .innerbanner-content {
+    position: inherit;
+}
+header .inner-banner {
+    position: inherit;
+}
+.inner-banner img {
+    max-width: 100%;
+    height: 140px;
+}
+
+header .innerbanner-content .container h1 {
+    position: absolute;
+    left: 50px;
+    bottom: 4px;
+        font-size: 18px;
+        display: none;
+}
+.breadcrumb-inner {
+    bottom: 14px;
+}
+.client-satisfied img {
+    max-width: 100%;
+}
+.client-satisfied {
+    padding: 30px 0!important;
+}
+.fact-bx:after {
+	display: none;
+}
+.brand-bx {
+    margin: 10px 0px;
+}
+.brand-main {
+    padding: 20px 0px;
+}
+.fact-main {
+    padding-top: 30px;
+}
+.Professional-Trainers {
+    padding: 30px 0 30px;
+}
+.listing-search h2 {
+    margin: 0px 0px 0px 10px;
+    line-height: 30px;
+    font-size: 16px;
+}
+.listing-main {
+    padding: 30px 0px 30px;
+}
+.listing-search select {
+    height: 60px;
+    border-radius: 0px;
+    background-color: #fff;
+    border: 0px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #999999;
+    margin-bottom: 10px;
+}
+.listing-search {
+	margin-bottom: 0px;
+}
+.listing-icons {
+	margin-bottom: 10px;
+}
+.listing-pagi ul li a {
+    margin-bottom: 10px;
+}
+.how-work-main {
+    padding: 30px 0px 30px;
+}
+.how-work-icon {
+    position: inherit;
+    width: 100%;
+    top: 0;
+    margin-bottom: 20px;
+}
+.news-main {
+    padding: 30px 0px;
+}
+.cnt-form img {
+    max-width: 100%;
+    height: auto;
+}
+.contact-main {
+    padding-top: 30px;
+}
+.listing-details-main {
+    padding: 30px 0px;
+}
+.extra-form label {
+    word-wrap: break-word;
+}
+.ldetail-total {
+ word-wrap: break-word;
+}
+.book-form {
+    padding: 30px 0px;
+}
+.ldetail-list-main {
+    padding: 30px 0px;
+}
+.register-form {
+    margin-top: 20px;
+}
+.reservation-list-main #tabs-container {
+    margin: 0px;
+    width: 100%;
+}
+.reservation-list-main .tabs-menu li {
+    margin: 0px;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.reservation-tab-main #tabs-container {
+    margin: 0px;
+    width: 100%;
+}
+.res-select-bx select {
+    width: 100%;
+    margin: 0px 0px 20px 0px;
+}
+.s-t-text {
+    margin-bottom: 30px;
+}
+.forth-t-bx .third-listing {
+    width: 100%;
+}
+}
+
