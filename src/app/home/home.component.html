@@ -110,7 +110,7 @@
                   <div class="label-select">
                     <label for="inputCarBrand" class="col-form-label">Car Brand</label>
                     <select id="inputCarBrand" class="form-control">
-                      <option>Audi</option>
+                      <option *ngFor="let brand of brands" [value]="brand.id">{{brand.brand}}</option>
                     </select>
                   </div>
                   <div class="label-select pull-right">
@@ -291,7 +291,7 @@
           <a href="#">
             <div class="thumb-icon">
               <div class="cricle-img"
-                   style="background: url('../assets/images/work-icon-serach.png') no-repeat 0 0;"></div>
+                   style="background: url('../../assets/images/work-icon-serach.png') no-repeat 0 0;"></div>
             </div>
             <h3>Find a Car</h3>
             <p>Browse through our extensive range of vehicles, choose your vehicle, and make the booking.</p>
@@ -304,7 +304,7 @@
           <a href="#">
             <div class="thumb-icon">
               <div class="cricle-img"
-                   style="background: url('../assets/images/work-icon-key.png') no-repeat 0 0;"></div>
+                   style="background: url('../../assets/images/work-icon-key.png') no-repeat 0 0;"></div>
             </div>
             <h3>Enjoy the trip</h3>
             <p>Collect your vehicle from one of our outlets and enjoy your trip.</p>

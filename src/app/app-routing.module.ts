@@ -13,69 +13,75 @@ import {RegisterComponent} from './register/register.component';
 import {ReservationComponent} from './reservation/reservation.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    children: [
-      {
-        path: '',
-        component: HomeComponent,
-        pathMatch: 'full',
-      },
-      {
-        path: 'about-us',
-        component: AboutUsComponent,
-      },
-      {
-        path: 'car-listings',
-        children: [
-          {
-            path: '',
-            component: ListingComponent,
-            pathMatch: 'full',
-          },
-          {
-            path: 'details',
-            component: ListingDetailsComponent,
-          }
-        ]
-      },
-      {
-        path: 'how-it-works',
-        component: HowItWorksComponent,
-      },
-      {
-        path: 'news',
-        children: [
-          {
-            path: '',
-            component: NewsComponent,
-            pathMatch: 'full',
-          },
-          {
-            path: 'details',
-            component: NewsDetailsComponent,
-          }
-        ]
-      },
-      {
-        path: 'contact-us',
-        component: ContactUsComponent,
-      },
-      {
-        path: 'services',
-        component: ServicesComponent,
-      },
-      {
-        path: 'register',
-        component: RegisterComponent,
-      },
-      {
-        path: 'reservation',
-        component: ReservationComponent,
-      },
-    ]
-  }
-];
+    {
+      path: '',
+      children: [
+        {
+          path: '',
+          component: HomeComponent,
+          pathMatch: 'full',
+        },
+        {
+          path: 'about-us',
+          component: AboutUsComponent,
+        },
+        {
+          path: 'car-listings',
+          children: [
+            {
+              path: '',
+              component: ListingComponent,
+              pathMatch: 'full',
+            },
+            {
+              path: 'details',
+              component: ListingDetailsComponent,
+            }
+          ]
+        },
+        {
+          path: 'how-it-works',
+          component: HowItWorksComponent,
+        },
+        {
+          path: 'news',
+          children: [
+            {
+              path: '',
+              component: NewsComponent,
+              pathMatch: 'full',
+            },
+            {
+              path: 'details',
+              component: NewsDetailsComponent,
+            }
+          ]
+        },
+        {
+          path: 'contact-us',
+          component: ContactUsComponent,
+        },
+        {
+          path: 'services',
+          component: ServicesComponent,
+        },
+        {
+          path: 'register',
+          component: RegisterComponent,
+        },
+        {
+          path: 'reservation',
+          component: ReservationComponent,
+        },
+      ],
+    },
+    {
+      path: '**',
+      redirectTo: '/',
+      pathMatch: 'full'
+    }
+  ]
+;
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
