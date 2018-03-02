@@ -1,16 +1,16 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {AboutUsComponent} from './aboutus/aboutus.component';
-import {HomeComponent} from './home/home.component';
-import {ListingComponent} from './listing/listing.component';
-import {NewsComponent} from './news/news.component';
-import {ContactUsComponent} from './contact-us/contact-us.component';
-import {HowItWorksComponent} from './how-it-works/how-it-works.component';
-import {ServicesComponent} from './services/services.component';
-import {ListingDetailsComponent} from './listing-details/listing-details.component';
-import {NewsDetailsComponent} from './news-details/news-details.component';
-import {RegisterComponent} from './register/register.component';
-import {ReservationComponent} from './reservation/reservation.component';
+import {AboutUsComponent} from './components/aboutus/aboutus.component';
+import {HomeComponent} from './components/home/home.component';
+import {ListingComponent} from './components/listing/listing.component';
+import {NewsComponent} from './components/news/news.component';
+import {ContactUsComponent} from './components/contact-us/contact-us.component';
+import {HowItWorksComponent} from './components/how-it-works/how-it-works.component';
+import {ServicesComponent} from './components/services/services.component';
+import {ListingDetailsComponent} from './components/listing-details/listing-details.component';
+import {NewsDetailsComponent} from './components/news-details/news-details.component';
+import {RegisterComponent} from './components/register/register.component';
+import {ReservationComponent} from './components/reservation/reservation.component';
 
 const routes: Routes = [
     {
