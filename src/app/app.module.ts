@@ -21,6 +21,7 @@ import { ReservationComponent } from './components/reservation/reservation.compo
 import {BrandService} from './services/brand.service';
 import {TypeService} from './services/type.service';
 import {CategoryService} from './services/category.service';
+import {ListingService} from './services/listing.service';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import {CategoryService} from './services/category.service';
   providers: [
     BrandService,
     TypeService,
-    CategoryService
+    CategoryService,
+    ListingService
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA]

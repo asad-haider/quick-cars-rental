@@ -1,5 +1,5 @@
-export interface IResponse {
-  Result: any;
+export interface IResponse<T> {
+  Result: T;
   Code: number;
   Message: string;
   UserBlocked: number;

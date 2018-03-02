@@ -107,13 +107,14 @@
       </div>
       <div class="listing-product">
         <div class="row">
-          <div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="col-xs-12 col-sm-6 col-md-4"
+               *ngFor="let listing of listingResponse.data">
             <div class="l-product-bx">
               <div class="p-head">
-                <h3>2016 Marcedes-Benz SLK</h3>
+                <h3>{{listing.name}}</h3>
               </div>
               <div class="p-price">
-                <h2>$79<sup>oo</sup><span>/ Day</span></h2>
+                <h2>${{listing.rate}}<sup>oo</sup><span>/ Day</span></h2>
               </div>
               <div class="p-img">
                 <a routerLink="details">
@@ -136,251 +137,26 @@
               </div>
             </div>
           </div>
-          <div class="col-xs-12 col-sm-6 col-md-4">
-            <div class="l-product-bx">
-              <div class="p-head">
-                <h3>2016 Marcedes-Benz SLK</h3>
-              </div>
-              <div class="p-price">
-                <h2>$81<sup>oo</sup><span>/ Day</span></h2>
-              </div>
-              <div class="p-img">
-                <a routerLink="details">
-                  <img src="../../../assets/images/p-2.jpg">
-                </a>
-              </div>
-              <div class="info">
-                <ul>
-                  <li><img src="../../../assets/images/seats-icon.png"> &nbsp;2 Seats</li>
-                  <li><img src="../../../assets/images/bag.png"> &nbsp;2 Bags</li>
-                  <li><img src="../../../assets/images/speed-icon.png"> &nbsp;150 MPG</li>
-                  <li><img src="../../../assets/images/airbag.png"> &nbsp;Airbags</li>
-                  <li><img src="../../../assets/images/car_manual.png"> &nbsp;Manual/auto</li>
-                  <li><img src="../../../assets/images/Ac.png"> &nbsp;AC</li>
-                  <li><img src="../../../assets/images/engine.png"> &nbsp;v8 Engine</li>
-                </ul>
-              </div>
-              <div class="p-link">
-                <a routerLink="details">View Details</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-xs-12 col-sm-6 col-md-4">
-            <div class="l-product-bx">
-              <div class="p-head">
-                <h3>2016 Marcedes-Benz SLK</h3>
-              </div>
-              <div class="p-price">
-                <h2>$79<sup>oo</sup><span>/ Day</span></h2>
-              </div>
-              <div class="p-img">
-                <a routerLink="details">
-                  <img src="../../../assets/images/p-3.jpg">
-                </a>
-              </div>
-              <div class="info">
-                <ul>
-                  <li><img src="../../../assets/images/seats-icon.png"> &nbsp;2 Seats</li>
-                  <li><img src="../../../assets/images/bag.png"> &nbsp;2 Bags</li>
-                  <li><img src="../../../assets/images/speed-icon.png"> &nbsp;150 MPG</li>
-                  <li><img src="../../../assets/images/airbag.png"> &nbsp;Airbags</li>
-                  <li><img src="../../../assets/images/car_manual.png"> &nbsp;Manual/auto</li>
-                  <li><img src="../../../assets/images/Ac.png"> &nbsp;AC</li>
-                  <li><img src="../../../assets/images/engine.png"> &nbsp;v8 Engine</li>
-                </ul>
-              </div>
-              <div class="p-link">
-                <a routerLink="details">View Details</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-xs-12 col-sm-6 col-md-4">
-            <div class="l-product-bx">
-              <div class="p-head">
-                <h3>2016 Marcedes-Benz SLK</h3>
-              </div>
-              <div class="p-price">
-                <h2>$79<sup>oo</sup><span>/ Day</span></h2>
-              </div>
-              <div class="p-img">
-                <a routerLink="details">
-                  <img src="../../../assets/images/p-1.jpg">
-                </a>
-              </div>
-              <div class="info">
-                <ul>
-                  <li><img src="../../../assets/images/seats-icon.png"> &nbsp;2 Seats</li>
-                  <li><img src="../../../assets/images/bag.png"> &nbsp;2 Bags</li>
-                  <li><img src="../../../assets/images/speed-icon.png"> &nbsp;150 MPG</li>
-                  <li><img src="../../../assets/images/airbag.png"> &nbsp;Airbags</li>
-                  <li><img src="../../../assets/images/car_manual.png"> &nbsp;Manual/auto</li>
-                  <li><img src="../../../assets/images/Ac.png"> &nbsp;AC</li>
-                  <li><img src="../../../assets/images/engine.png"> &nbsp;v8 Engine</li>
-                </ul>
-              </div>
-              <div class="p-link">
-                <a routerLink="details">View Details</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-xs-12 col-sm-6 col-md-4">
-            <div class="l-product-bx">
-              <div class="p-head">
-                <h3>2016 Marcedes-Benz SLK</h3>
-              </div>
-              <div class="p-price">
-                <h2>$81<sup>oo</sup><span>/ Day</span></h2>
-              </div>
-              <div class="p-img">
-                <a routerLink="details">
-                  <img src="../../../assets/images/p-2.jpg">
-                </a>
-              </div>
-              <div class="info">
-                <ul>
-                  <li><img src="../../../assets/images/seats-icon.png"> &nbsp;2 Seats</li>
-                  <li><img src="../../../assets/images/bag.png"> &nbsp;2 Bags</li>
-                  <li><img src="../../../assets/images/speed-icon.png"> &nbsp;150 MPG</li>
-                  <li><img src="../../../assets/images/airbag.png"> &nbsp;Airbags</li>
-                  <li><img src="../../../assets/images/car_manual.png"> &nbsp;Manual/auto</li>
-                  <li><img src="../../../assets/images/Ac.png"> &nbsp;AC</li>
-                  <li><img src="../../../assets/images/engine.png"> &nbsp;v8 Engine</li>
-                </ul>
-              </div>
-              <div class="p-link">
-                <a routerLink="details">View Details</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-xs-12 col-sm-6 col-md-4">
-            <div class="l-product-bx">
-              <div class="p-head">
-                <h3>2016 Marcedes-Benz SLK</h3>
-              </div>
-              <div class="p-price">
-                <h2>$79<sup>oo</sup><span>/ Day</span></h2>
-              </div>
-              <div class="p-img">
-                <a routerLink="details">
-                  <img src="../../../assets/images/p-3.jpg">
-                </a>
-              </div>
-              <div class="info">
-                <ul>
-                  <li><img src="../../../assets/images/seats-icon.png"> &nbsp;2 Seats</li>
-                  <li><img src="../../../assets/images/bag.png"> &nbsp;2 Bags</li>
-                  <li><img src="../../../assets/images/speed-icon.png"> &nbsp;150 MPG</li>
-                  <li><img src="../../../assets/images/airbag.png"> &nbsp;Airbags</li>
-                  <li><img src="../../../assets/images/car_manual.png"> &nbsp;Manual/auto</li>
-                  <li><img src="../../../assets/images/Ac.png"> &nbsp;AC</li>
-                  <li><img src="../../../assets/images/engine.png"> &nbsp;v8 Engine</li>
-                </ul>
-              </div>
-              <div class="p-link">
-                <a routerLink="details">View Details</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-xs-12 col-sm-6 col-md-4">
-            <div class="l-product-bx">
-              <div class="p-head">
-                <h3>2016 Marcedes-Benz SLK</h3>
-              </div>
-              <div class="p-price">
-                <h2>$79<sup>oo</sup><span>/ Day</span></h2>
-              </div>
-              <div class="p-img">
-                <a routerLink="details">
-                  <img src="../../../assets/images/p-1.jpg">
-                </a>
-              </div>
-              <div class="info">
-                <ul>
-                  <li><img src="../../../assets/images/seats-icon.png"> &nbsp;2 Seats</li>
-                  <li><img src="../../../assets/images/bag.png"> &nbsp;2 Bags</li>
-                  <li><img src="../../../assets/images/speed-icon.png"> &nbsp;150 MPG</li>
-                  <li><img src="../../../assets/images/airbag.png"> &nbsp;Airbags</li>
-                  <li><img src="../../../assets/images/car_manual.png"> &nbsp;Manual/auto</li>
-                  <li><img src="../../../assets/images/Ac.png"> &nbsp;AC</li>
-                  <li><img src="../../../assets/images/engine.png"> &nbsp;v8 Engine</li>
-                </ul>
-              </div>
-              <div class="p-link">
-                <a routerLink="details">View Details</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-xs-12 col-sm-6 col-md-4">
-            <div class="l-product-bx">
-              <div class="p-head">
-                <h3>2016 Marcedes-Benz SLK</h3>
-              </div>
-              <div class="p-price">
-                <h2>$81<sup>oo</sup><span>/ Day</span></h2>
-              </div>
-              <div class="p-img">
-                <a routerLink="details">
-                  <img src="../../../assets/images/p-2.jpg">
-                </a>
-              </div>
-              <div class="info">
-                <ul>
-                  <li><img src="../../../assets/images/seats-icon.png"> &nbsp;2 Seats</li>
-                  <li><img src="../../../assets/images/bag.png"> &nbsp;2 Bags</li>
-                  <li><img src="../../../assets/images/speed-icon.png"> &nbsp;150 MPG</li>
-                  <li><img src="../../../assets/images/airbag.png"> &nbsp;Airbags</li>
-                  <li><img src="../../../assets/images/car_manual.png"> &nbsp;Manual/auto</li>
-                  <li><img src="../../../assets/images/Ac.png"> &nbsp;AC</li>
-                  <li><img src="../../../assets/images/engine.png"> &nbsp;v8 Engine</li>
-                </ul>
-              </div>
-              <div class="p-link">
-                <a routerLink="details">View Details</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-xs-12 col-sm-6 col-md-4">
-            <div class="l-product-bx">
-              <div class="p-head">
-                <h3>2016 Marcedes-Benz SLK</h3>
-              </div>
-              <div class="p-price">
-                <h2>$79<sup>oo</sup><span>/ Day</span></h2>
-              </div>
-              <div class="p-img">
-                <a routerLink="details">
-                  <img src="../../../assets/images/p-3.jpg">
-                </a>
-              </div>
-              <div class="info">
-                <ul>
-                  <li><img src="../../../assets/images/seats-icon.png"> &nbsp;2 Seats</li>
-                  <li><img src="../../../assets/images/bag.png"> &nbsp;2 Bags</li>
-                  <li><img src="../../../assets/images/speed-icon.png"> &nbsp;150 MPG</li>
-                  <li><img src="../../../assets/images/airbag.png"> &nbsp;Airbags</li>
-                  <li><img src="../../../assets/images/car_manual.png"> &nbsp;Manual/auto</li>
-                  <li><img src="../../../assets/images/Ac.png"> &nbsp;AC</li>
-                  <li><img src="../../../assets/images/engine.png"> &nbsp;v8 Engine</li>
-                </ul>
-              </div>
-              <div class="p-link">
-                <a routerLink="details">View Details</a>
-              </div>
-            </div>
-          </div>
-
         </div>
       </div>
       <div class="listing-pagi">
         <div class="row">
           <div class="col-md-12">
             <ul class="pagination pagination-lg">
-              <li><a href="#"><i class="fa fa-arrow-left" aria-hidden="true"></i></a></li>
+              <li>
+                <a (click)="prevPage()" [disabled]="!listingResponse.prev_page_url">
+                  <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                </a>
+              </li>
               <li><a href="#">1</a></li>
               <li><a href="#">2</a></li>
               <li><a href="#">3</a></li>
               <li><a href="#">4</a></li>
-              <li><a href="#"><i class="fa fa-arrow-right" aria-hidden="true"></i></a></li>
+              <li>
+                <a (click)="nextPage()" [disabled]="!listingResponse.next_page_url">
+                  <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                </a>
+              </li>
             </ul>
           </div>
         </div>

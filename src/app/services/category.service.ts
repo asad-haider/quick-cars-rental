@@ -10,7 +10,7 @@ export class CategoryService {
   }
 
   getAllCategories() {
-    return this.http.get<IResponse>(`${Constants.BASE_URL}/categories`);
+    return this.http.get<IResponse<any>>(`${Constants.BASE_URL}/categories`);
   }
 
 }
