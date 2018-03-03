@@ -11,10 +11,14 @@ export class ListingService {
   }
 
   getListings() {
-    return this.http.get<IResponse<IPaginateResponse>>(`${Constants.BASE_URL}/listings`);
+    return this.http.get<IResponse<IPaginateResponse<IListing.ListingItem[]>>>(`${Constants.BASE_API_URL}/listings`);
   }
 
   getListingsAtUrl(url: string) {
-    return this.http.get<IResponse<IPaginateResponse>>(url);
+    return this.http.get<IResponse<IPaginateResponse<IListing.ListingItem[]>>>(url);
+  }
+
+  getListingById(id: number) {
+    return this.http.get<IResponse<IListing.Detail>>(`${Constants.BASE_API_URL}/listing/${id}`);
   }
 }

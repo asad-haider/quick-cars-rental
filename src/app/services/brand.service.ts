@@ -10,6 +10,6 @@ export class BrandService {
   }
 
   getAllBrands() {
-    return this.http.get<IResponse<any>>(`${Constants.BASE_URL}/brands`);
+    return this.http.get<IResponse<any>>(`${Constants.BASE_API_URL}/brands`);
   }
 }

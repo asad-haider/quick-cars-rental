@@ -22,9 +22,12 @@ import {BrandService} from './services/brand.service';
 import {TypeService} from './services/type.service';
 import {CategoryService} from './services/category.service';
 import {ListingService} from './services/listing.service';
+import {ArrayFilter} from './pipes/ArrayFlter';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
+    // Components
     AppComponent,
     HeaderComponent,
     FooterComponent,
@@ -38,12 +41,16 @@ import {ListingService} from './services/listing.service';
     ListingDetailsComponent,
     NewsDetailsComponent,
     RegisterComponent,
-    ReservationComponent
+    ReservationComponent,
+
+    // Filters
+    ArrayFilter
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     BrandService,

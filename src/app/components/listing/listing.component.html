@@ -117,8 +117,8 @@
                 <h2>${{listing.rate}}<sup>oo</sup><span>/ Day</span></h2>
               </div>
               <div class="p-img">
-                <a routerLink="details">
-                  <img src="../../../assets/images/p-1.jpg">
+                <a [routerLink]="['details', listing.id]">
+                  <img src="{{BASE_URL}}/resize/{{listing.image_url}}">
                 </a>
               </div>
               <div class="info">
@@ -133,7 +133,7 @@
                 </ul>
               </div>
               <div class="p-link">
-                <a routerLink="details">View Details</a>
+                <a [routerLink]="['details', listing.id]">View Details</a>
               </div>
             </div>
           </div>
@@ -144,7 +144,7 @@
           <div class="col-md-12">
             <ul class="pagination pagination-lg">
               <li>
-                <a (click)="prevPage()" [disabled]="!listingResponse.prev_page_url">
+                <a (click)="listingResponse.prev_page_url && prevPage(listingResponse.prev_page_url)">
                   <i class="fa fa-arrow-left" aria-hidden="true"></i>
                 </a>
               </li>
@@ -153,7 +153,7 @@
               <li><a href="#">3</a></li>
               <li><a href="#">4</a></li>
               <li>
-                <a (click)="nextPage()" [disabled]="!listingResponse.next_page_url">
+                <a (click)="listingResponse.next_page_url && nextPage(listingResponse.next_page_url)">
                   <i class="fa fa-arrow-right" aria-hidden="true"></i>
                 </a>
               </li>

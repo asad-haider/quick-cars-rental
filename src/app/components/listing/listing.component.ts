@@ -1,9 +1,10 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
-import {initClientSaysSlider} from '../../../assets/js/sliders';
+import {initClientSaysSlider, init, initReturnToTop} from '../../../assets/js/sliders';
 import {CategoryService} from '../../services/category.service';
 import {BrandService} from '../../services/brand.service';
 import {ListingService} from '../../services/listing.service';
 import {IPaginateResponse} from '../../interfaces/IPaginateResponse';
+import {Constants} from '../../constants';
 
 @Component({
   selector: 'app-listing',
@@ -14,18 +15,8 @@ export class ListingComponent implements OnInit, AfterViewInit {
 
   public categories;
   public brands;
-  public listingResponse: IPaginateResponse = {
-    data: [],
-    next_page_url: null,
-    prev_page_url: null,
-    current_page: 1,
-    from: 0,
-    last_page: 0,
-    per_page: 0,
-    path: null,
-    total: 0,
-    to: 0,
-  };
+  public BASE_URL = Constants.BASE_URL;
+  public listingResponse: IPaginateResponse<IListing.ListingItem[]>;
 
   constructor(private _categoryService: CategoryService, private _brandService: BrandService, private _listingService: ListingService) {
   }
@@ -37,6 +28,8 @@ export class ListingComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
+    init();
+    initReturnToTop();
     initClientSaysSlider();
   }
 
@@ -71,8 +64,8 @@ export class ListingComponent implements OnInit, AfterViewInit {
       );
   }
 
-  prevPage() {
-    this._listingService.getListingsAtUrl(this.listingResponse.prev_page_url)
+  prevPage(prev_page_url: string) {
+    this._listingService.getListingsAtUrl(prev_page_url)
       .subscribe(
         data => {
           this.listingResponse = data.Result;
@@ -81,8 +74,8 @@ export class ListingComponent implements OnInit, AfterViewInit {
       );
   }
 
-  nextPage() {
-    this._listingService.getListingsAtUrl(this.listingResponse.next_page_url)
+  nextPage(next_page_url: string) {
+    this._listingService.getListingsAtUrl(next_page_url)
       .subscribe(
         data => {
           this.listingResponse = data.Result;

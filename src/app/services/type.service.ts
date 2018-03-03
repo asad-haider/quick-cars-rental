@@ -10,7 +10,7 @@ export class TypeService {
   }
 
   getAllTypes() {
-    return this.http.get<IResponse<any>>(`${Constants.BASE_URL}/types`);
+    return this.http.get<IResponse<any>>(`${Constants.BASE_API_URL}/types`);
   }
 
 }
