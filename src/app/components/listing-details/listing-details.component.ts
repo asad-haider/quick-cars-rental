@@ -29,7 +29,6 @@ export class ListingDetailsComponent implements OnInit, OnDestroy, AfterViewInit
   }
 
   updateTotal(extras) {
-    console.log(extras.isChecked, extras.rate);
     if (extras.isChecked) {
       this.total +=  extras.rate;
     } else {

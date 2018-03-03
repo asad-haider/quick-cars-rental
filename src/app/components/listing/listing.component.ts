@@ -17,6 +17,10 @@ export class ListingComponent implements OnInit, AfterViewInit {
   public brands;
   public BASE_URL = Constants.BASE_URL;
   public listingResponse: IPaginateResponse<IListing.ListingItem[]>;
+  public filter = {
+    category_id: null,
+    brand_id: null
+  };
 
   constructor(private _categoryService: CategoryService, private _brandService: BrandService, private _listingService: ListingService) {
   }
@@ -54,7 +58,7 @@ export class ListingComponent implements OnInit, AfterViewInit {
   }
 
   getListings() {
-    this._listingService.getListings()
+    this._listingService.getListings(this.filter)
       .subscribe(
         data => {
           this.listingResponse = data.Result;
@@ -65,7 +69,7 @@ export class ListingComponent implements OnInit, AfterViewInit {
   }
 
   prevPage(prev_page_url: string) {
-    this._listingService.getListingsAtUrl(prev_page_url)
+    this._listingService.getListingsAtUrl(prev_page_url, this.filter)
       .subscribe(
         data => {
           this.listingResponse = data.Result;
@@ -75,7 +79,7 @@ export class ListingComponent implements OnInit, AfterViewInit {
   }
 
   nextPage(next_page_url: string) {
-    this._listingService.getListingsAtUrl(next_page_url)
+    this._listingService.getListingsAtUrl(next_page_url, this.filter)
       .subscribe(
         data => {
           this.listingResponse = data.Result;

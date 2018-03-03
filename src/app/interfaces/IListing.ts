@@ -27,6 +27,7 @@ declare module IListing {
   export interface Feature {
     id: number;
     feature: string;
+    icon: string;
     listing_id: number;
     status: string;
     created_at: string;
@@ -54,6 +55,7 @@ declare module IListing {
     type_id: number;
     brand_id: number;
     rate: number;
+    features: Feature[];
     status: string;
     created_at: string;
     updated_at: string;

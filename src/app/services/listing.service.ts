@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpParams} from '@angular/common/http';
 import {Constants} from '../constants';
 import {IPaginateResponse} from '../interfaces/IPaginateResponse';
 import {IResponse} from '../interfaces/IResponse';
@@ -10,12 +10,16 @@ export class ListingService {
   constructor(private http: HttpClient) {
   }
 
-  getListings() {
-    return this.http.get<IResponse<IPaginateResponse<IListing.ListingItem[]>>>(`${Constants.BASE_API_URL}/listings`);
+  getListings(filter?) {
+    return this.http.get<IResponse<IPaginateResponse<IListing.ListingItem[]>>>(`${Constants.BASE_API_URL}/listings`, {
+      params: filter
+    });
   }
 
-  getListingsAtUrl(url: string) {
-    return this.http.get<IResponse<IPaginateResponse<IListing.ListingItem[]>>>(url);
+  getListingsAtUrl(url: string, filter?) {
+    return this.http.get<IResponse<IPaginateResponse<IListing.ListingItem[]>>>(url, {
+      params: filter
+    });
   }
 
   getListingById(id: number) {

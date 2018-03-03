@@ -81,12 +81,16 @@
       <div class="listing-search l-s2">
         <div class="row">
           <div class="col-xs-12 col-sm-3 col-md-3">
-            <select class="form-control">
+            <select class="form-control" [(ngModel)]="filter.category_id"
+                    (change)="getListings()">
+              <option [ngValue]="null">-- SELECT --</option>
               <option *ngFor="let category of categories" [value]="category.id">{{category.category}}</option>
             </select>
           </div>
           <div class="col-xs-12 col-sm-3 col-md-3">
-            <select class="form-control">
+            <select class="form-control" [(ngModel)]="filter.brand_id"
+                    (change)="getListings()">
+              <option [ngValue]="null">-- SELECT --</option>
               <option *ngFor="let brand of brands" [value]="brand.id">{{brand.brand}}</option>
             </select>
           </div>
@@ -123,13 +127,10 @@
               </div>
               <div class="info">
                 <ul>
-                  <li><img src="../../../assets/images/seats-icon.png"> &nbsp;2 Seats</li>
-                  <li><img src="../../../assets/images/bag.png"> &nbsp;2 Bags</li>
-                  <li><img src="../../../assets/images/speed-icon.png"> &nbsp;150 MPG</li>
-                  <li><img src="../../../assets/images/airbag.png"> &nbsp;Airbags</li>
-                  <li><img src="../../../assets/images/car_manual.png"> &nbsp;Manual/auto</li>
-                  <li><img src="../../../assets/images/Ac.png"> &nbsp;AC</li>
-                  <li><img src="../../../assets/images/engine.png"> &nbsp;v8 Engine</li>
+                  <li *ngFor="let feature of listing.features">
+                    <img src="{{BASE_URL}}/resize/{{feature.icon}}" *ngIf="feature.icon">
+                    {{feature.feature}}
+                  </li>
                 </ul>
               </div>
               <div class="p-link">
