@@ -26,6 +26,7 @@ import {ArrayFilter} from './pipes/ArrayFilter';
 import {FormsModule} from '@angular/forms';
 import {NewsService} from './services/news.service';
 import {NgxPaginationModule} from 'ngx-pagination';
+import {AuthService} from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
     CategoryService,
     ListingService,
     NewsService,
+    AuthService,
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA]
