@@ -8,9 +8,9 @@
           <h1>Listing Details</h1>
           <div class="breadcrumb-inner">
             <ul>
-              <li>Home</li>
-              <li><a href="#">- &nbsp;listing</a></li>
-              <li><a href="#">- &nbsp;Listing Details</a></li>
+              <li><a routerLink="/">Home</a></li>
+              <li><a routerLink="/car-listings">- listing</a></li>
+              <li>- Listing Details</li>
             </ul>
           </div>
         </div>
@@ -70,13 +70,13 @@
         <div class="row">
           <div class="col-xs-12 col-sm-12 col-md-offset-1 col-md-10">
             <div class="l-detail-img">
-              <img src="{{BASE_URL}}/resize/{{listing.image_url}}">
+              <img *ngIf="listing" src="{{BASE_URL}}/resize/{{listing.image_url}}">
             </div>
           </div>
           <div class="col-xs-12 col-md-12">
             <div class="l-detail-tab">
-              <h2>{{listing.name}}</h2>
-              <h4>{{listing.category.category}}</h4>
+              <h2>{{listing?.name}}</h2>
+              <h4>{{listing?.category.category}}</h4>
               <tabs>
                 <div id="tabs-container">
                   <ul class="tabs-menu">
@@ -100,7 +100,7 @@
                     </div>
                     <div id="tab-2" class="tab-content">
                       <p>
-                        {{listing.description}}</p>
+                        {{listing?.description}}</p>
                     </div>
                     <div id="tab-3" class="tab-content">
                       <p>Duis egestas fermentum ipsum et commodo. Proin bibendum consectetur elit, hendrerit porta mi
@@ -227,7 +227,7 @@
                   <div class="extra-form">
                     <h4>Extras</h4>
                     <div class="form-check"
-                         *ngFor="let extras of listing.extras | ArrayFilter: 'type': 'extras'">
+                         *ngFor="let extras of listing?.extras | ArrayFilter: 'type': 'extras'">
                       <label class="form-check-label">
                         <input type="checkbox" class="form-check-input"
                                [name]="extras.name"
@@ -242,7 +242,7 @@
                   <div class="extra-form">
                     <h4>Protection</h4>
                     <div class="form-check"
-                         *ngFor="let extras of listing.extras | ArrayFilter: 'type': 'protection'">
+                         *ngFor="let extras of listing?.extras | ArrayFilter: 'type': 'protection'">
                       <label class="form-check-label">
                         <input type="checkbox" class="form-check-input"
                                [name]="extras.name"

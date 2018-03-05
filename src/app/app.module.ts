@@ -22,8 +22,10 @@ import {BrandService} from './services/brand.service';
 import {TypeService} from './services/type.service';
 import {CategoryService} from './services/category.service';
 import {ListingService} from './services/listing.service';
-import {ArrayFilter} from './pipes/ArrayFlter';
+import {ArrayFilter} from './pipes/ArrayFilter';
 import {FormsModule} from '@angular/forms';
+import {NewsService} from './services/news.service';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -50,13 +52,15 @@ import {FormsModule} from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
   ],
   providers: [
     BrandService,
     TypeService,
     CategoryService,
-    ListingService
+    ListingService,
+    NewsService,
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA]

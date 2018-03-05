@@ -62,24 +62,13 @@ export class ListingComponent implements OnInit, AfterViewInit {
       .subscribe(
         data => {
           this.listingResponse = data.Result;
-          console.log(this.listingResponse);
         },
         err => console.error(err),
       );
   }
 
-  prevPage(prev_page_url: string) {
-    this._listingService.getListingsAtUrl(prev_page_url, this.filter)
-      .subscribe(
-        data => {
-          this.listingResponse = data.Result;
-        },
-        err => console.error(err),
-      );
-  }
-
-  nextPage(next_page_url: string) {
-    this._listingService.getListingsAtUrl(next_page_url, this.filter)
+  getListingsByPageNumber(url: string, currentPage: number) {
+    this._listingService.getListingsAtUrl(`${url}?page=${currentPage}`, this.filter)
       .subscribe(
         data => {
           this.listingResponse = data.Result;

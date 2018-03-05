@@ -78,116 +78,16 @@
 
       <div class="news-info">
         <div class="row">
-
-          <div class="col-xs-12 col-sm-6 col-md-4 newsboxes">
-            <div class="content-box ">
-
-              <div class="datearea">29 October</div>
-              <div class="thumb-icon"><a routerLink="details"><img src="../../../../assets/images/news-1.jpg"></a></div>
-              <h3>Monotonectally build distinctive convergence and an attempt</h3>
-              <p>Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad... </p>
-
-              <a routerLink="details">Read more > </a>
-            </div>
-
-
-          </div>
-          <div class="col-xs-12 col-sm-6 col-md-4 newsboxes">
-            <div class="content-box ">
-
-              <div class="datearea">29 October</div>
-              <div class="thumb-icon"><a routerLink="details"><img src="../../../../assets/images/new-2.jpg"></a></div>
-              <h3>Monotonectally build distinctive convergence and an attempt</h3>
-              <p>Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad... </p>
-
-              <a routerLink="details">Read more > </a>
-            </div>
-
-
-          </div>
-          <div class="col-xs-12 col-sm-6 col-md-4 newsboxes">
-            <div class="content-box ">
-
-              <div class="datearea">29 October</div>
-              <div class="thumb-icon"><a routerLink="details"><img src="../../../../assets/images/news-3.jpg"></a></div>
-              <h3>Monotonectally build distinctive convergence and an attempt</h3>
-              <p>Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad... </p>
-
-              <a routerLink="details">Read more > </a>
-            </div>
-          </div>
-          <div class="col-xs-12 col-sm-6 col-md-4 newsboxes">
-            <div class="content-box ">
-
-              <div class="datearea">29 October</div>
-              <div class="thumb-icon"><a routerLink="details"><img src="../../../../assets/images/news-1.jpg"></a></div>
-              <h3>Monotonectally build distinctive convergence and an attempt</h3>
-              <p>Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad... </p>
-
-              <a routerLink="details">Read more > </a>
-            </div>
-
-
-          </div>
-          <div class="col-xs-12 col-sm-6 col-md-4 newsboxes">
-            <div class="content-box ">
-
-              <div class="datearea">29 October</div>
-              <div class="thumb-icon"><a routerLink="details"><img src="../../../../assets/images/new-2.jpg"></a></div>
-              <h3>Monotonectally build distinctive convergence and an attempt</h3>
-              <p>Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad... </p>
-
-              <a routerLink="details">Read more > </a>
-            </div>
-
-
-          </div>
-          <div class="col-xs-12 col-sm-6 col-md-4 newsboxes">
-            <div class="content-box ">
-
-              <div class="datearea">29 October</div>
-              <div class="thumb-icon"><a routerLink="details"><img src="../../../../assets/images/news-3.jpg"></a></div>
-              <h3>Monotonectally build distinctive convergence and an attempt</h3>
-              <p>Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad... </p>
-
-              <a routerLink="details">Read more > </a>
-            </div>
-          </div>
-          <div class="col-xs-12 col-sm-6 col-md-4 newsboxes">
-            <div class="content-box ">
-
-              <div class="datearea">29 October</div>
-              <div class="thumb-icon"><a routerLink="details"><img src="../../../../assets/images/news-1.jpg"></a></div>
-              <h3>Monotonectally build distinctive convergence and an attempt</h3>
-              <p>Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad... </p>
-
-              <a routerLink="details">Read more > </a>
-            </div>
-
-
-          </div>
-          <div class="col-xs-12 col-sm-6 col-md-4 newsboxes">
-            <div class="content-box ">
-
-              <div class="datearea">29 October</div>
-              <div class="thumb-icon"><a routerLink="details"><img src="../../../../assets/images/new-2.jpg"></a></div>
-              <h3>Monotonectally build distinctive convergence and an attempt</h3>
-              <p>Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad... </p>
-
-              <a routerLink="details">Read more > </a>
-            </div>
-
-
-          </div>
-          <div class="col-xs-12 col-sm-6 col-md-4 newsboxes">
-            <div class="content-box ">
-
-              <div class="datearea">29 October</div>
-              <div class="thumb-icon"><a routerLink="details"><img src="../../../../assets/images/news-3.jpg"></a></div>
-              <h3>Monotonectally build distinctive convergence and an attempt</h3>
-              <p>Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad... </p>
-
-              <a routerLink="details">Read more > </a>
+          <div class="col-xs-12 col-sm-6 col-md-4 newsboxes"
+               *ngFor="let news of newsResponse?.data">
+            <div class="content-box">
+              <div class="datearea">{{ news.created_at | date: 'dd MMMM yyyy'}}</div>
+              <div class="thumb-icon">
+                <a [routerLink]="['details', news.id]"><img src="{{BASE_URL}}/resize/{{news.banner_image}}"></a>
+              </div>
+              <h3>{{news.title}}</h3>
+              <p>{{news.description}}</p>
+              <a [routerLink]="['details', news.id]">Read more > </a>
             </div>
           </div>
         </div>
@@ -195,13 +95,31 @@
       <div class="listing-pagi">
         <div class="row">
           <div class="col-md-12">
-            <ul class="pagination pagination-lg">
-              <li><a href="#"><i class="fa fa-arrow-right" aria-hidden="true"></i></a></li>
-              <li><a href="#">1</a></li>
-              <li><a href="#">2</a></li>
+            <ul class="pagination pagination-lg" *ngIf="newsResponse">
+              <li
+                *ngFor="let item of newsResponse.data
+                | paginate: { itemsPerPage: 6, currentPage: page, totalItems: newsResponse.total }">
+              </li>
+              <pagination-controls
+                (pageChange)="page = $event; getNewsByPageNumber(newsResponse.path, page)">
+              </pagination-controls>
+              <!--<li>
+                <a (click)="newsResponse.prev_page_url && getNewsByUrl(newsResponse.prev_page_url)">
+                  <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li *ngFor="let page of getPages()">
+                <a (click)="getNewsByUrl(page.url)">{{page.page}}</a>
+              </li>
+              <li></li>
+              <li></li>
               <li><a href="#">3</a></li>
               <li><a href="#">4</a></li>
-              <li><a href="#"><i class="fa fa-arrow-left" aria-hidden="true"></i></a></li>
+              <li>
+                <a (click)="newsResponse.next_page_url && getNewsByUrl(newsResponse.next_page_url)">
+                  <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                </a>
+              </li>-->
             </ul>
           </div>
         </div>

@@ -64,7 +64,7 @@ module.exports = {
       ]
     });
   },
-  initFeaturesTabs: function () {
+  initTabs: function () {
     $(".tabs-menu a").click(function (event) {
       event.preventDefault();
       $(this).parent().addClass("current");
