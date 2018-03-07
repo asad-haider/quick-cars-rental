@@ -20,15 +20,6 @@ export class RegisterComponent implements OnInit {
   }
 
   login() {
-    console.log(this.loginPayload);
-    this._authService.login(this.loginPayload)
-      .subscribe(
-        data => {
-          localStorage.setItem('token', data.token);
-          localStorage.setItem('userData', JSON.stringify(data.Result.user));
-        },
-        err => console.error(err),
-      );
+    this._authService.login(this.loginPayload);
   }
-
 }

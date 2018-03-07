@@ -27,6 +27,8 @@ import {FormsModule} from '@angular/forms';
 import {NewsService} from './services/news.service';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {AuthService} from './services/auth.service';
+import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
+import {McBreadcrumbsModule} from 'ngx-breadcrumbs';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,9 @@ import {AuthService} from './services/auth.service';
     ReservationComponent,
 
     // Filters
-    ArrayFilter
+    ArrayFilter,
+
+    BreadcrumbComponent
   ],
   imports: [
     BrowserModule,

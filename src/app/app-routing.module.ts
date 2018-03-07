@@ -24,27 +24,51 @@ const routes: Routes = [
         {
           path: 'about-us',
           component: AboutUsComponent,
+          data: {
+            title: 'About',
+            breadcrumb: 'About'
+          }
         },
         {
           path: 'car-listings',
+          data: {
+            title: 'Listing',
+            breadcrumb: 'Listing'
+          },
           children: [
             {
               path: '',
               component: ListingComponent,
               pathMatch: 'full',
+              data: {
+                title: 'Listing',
+                breadcrumb: 'Listing'
+              }
             },
             {
               path: 'details/:id',
               component: ListingDetailsComponent,
+              data: {
+                title: 'Detail',
+                breadcrumb: 'Detail'
+              }
             }
           ]
         },
         {
           path: 'how-it-works',
           component: HowItWorksComponent,
+          data: {
+            title: 'How it works',
+            breadcrumb: 'How it works'
+          }
         },
         {
           path: 'news',
+          data: {
+            title: 'News',
+            breadcrumb: 'News'
+          },
           children: [
             {
               path: '',
@@ -54,24 +78,44 @@ const routes: Routes = [
             {
               path: 'details/:id',
               component: NewsDetailsComponent,
+              data: {
+                title: 'Detail',
+                breadcrumb: 'Detail'
+              }
             }
           ]
         },
         {
           path: 'contact-us',
           component: ContactUsComponent,
+          data: {
+            title: 'Contact Us',
+            breadcrumb: 'Contact Us'
+          }
         },
         {
           path: 'services',
           component: ServicesComponent,
+          data: {
+            title: 'Services',
+            breadcrumb: 'Services'
+          }
         },
         {
           path: 'register',
           component: RegisterComponent,
+          data: {
+            title: 'Register',
+            breadcrumb: 'Register'
+          }
         },
         {
           path: 'reservation',
           component: ReservationComponent,
+          data: {
+            title: 'Reservation',
+            breadcrumb: 'Reservation'
+          }
         },
       ],
     },
@@ -84,7 +128,9 @@ const routes: Routes = [
 ;
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes),
+  ],
   exports: [RouterModule],
 })
 
