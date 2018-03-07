@@ -53,16 +53,6 @@ export class BreadcrumbComponent implements OnInit {
       const routeArray = child.snapshot.url.map(segment => segment.path);
 
       for (let i = 0; i < routeArray.length; i++) {
-        // if (Object.keys(child.snapshot.params).length > 0) {
-        //   if (this.isParam(child.snapshot.params, routeArray[i])) {
-        //     label = routeArray[i];
-        //   } else {
-        //     label = child.snapshot.data[ROUTE_DATA_BREADCRUMB];
-        //   }
-        // } else {
-        //   label = child.snapshot.data[ROUTE_DATA_BREADCRUMB];
-        // }
-        console.log(this.isParam(child.snapshot.params, routeArray[i]));
         if (!this.isParam(child.snapshot.params, routeArray[i])) {
           label = child.snapshot.data[ROUTE_DATA_BREADCRUMB];
           const routeURL = routeArray[i];

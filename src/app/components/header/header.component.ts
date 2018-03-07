@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, NavigationEnd, NavigationStart, Router} from '@angular/router';
 import {filter, map} from 'rxjs/operators';
+import {AuthService} from '../../services/auth.service';
+import {IUser} from '../../interfaces/IUser';
 
 @Component({
   selector: 'app-header',
@@ -10,8 +12,10 @@ import {filter, map} from 'rxjs/operators';
 export class HeaderComponent implements OnInit {
 
   public pageTitle: String;
+  public isLoggedIn: boolean;
+  public userData: IUser;
 
-  constructor(private _activatedRoute: ActivatedRoute, private _router: Router) {
+  constructor(private _activatedRoute: ActivatedRoute, private _router: Router, private _authService: AuthService) {
   }
 
   ngOnInit() {
@@ -33,6 +37,8 @@ export class HeaderComponent implements OnInit {
       }))
       .subscribe((title: any) => {
         this.pageTitle = title;
+        this.isLoggedIn = this._authService.isAuthenticated();
+        this.userData = this._authService.getUserInfo();
       });
 
   }
