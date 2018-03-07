@@ -28,8 +28,9 @@ import {NewsService} from './services/news.service';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {AuthService} from './services/auth.service';
 import {BreadcrumbComponent} from './components/breadcrumb/breadcrumb.component';
-import {McBreadcrumbsModule} from 'ngx-breadcrumbs';
 import {TokenInterceptor} from './interceptors/TokenInterceptor';
+import {NgProgressModule} from '@ngx-progressbar/core';
+import {NgProgressHttpModule} from '@ngx-progressbar/http';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,9 @@ import {TokenInterceptor} from './interceptors/TokenInterceptor';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    NgProgressModule.forRoot(),
+    NgProgressHttpModule
   ],
   providers: [
     BrandService,

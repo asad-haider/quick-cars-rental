@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit {
   public isLoggedIn: boolean;
   public userData: IUser;
 
-  constructor(private _activatedRoute: ActivatedRoute, private _router: Router, private _authService: AuthService) {
+  constructor(private _activatedRoute: ActivatedRoute, public _router: Router, private _authService: AuthService) {
   }
 
   ngOnInit() {

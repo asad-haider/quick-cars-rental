@@ -1,4 +1,7 @@
 <div>
+  <ng-progress [direction]="'ltr+'" [min]="20" [max]="1" [speed]="200" [trickleSpeed]="300"
+               [spinner]="false" [thick]="true" [meteor]="true"
+               [color]="'red'" [ease]="'linear'"></ng-progress>
   <app-header></app-header>
   <router-outlet></router-outlet>
   <app-footer></app-footer>

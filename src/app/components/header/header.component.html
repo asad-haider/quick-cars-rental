@@ -1,58 +1,213 @@
 <header>
   <a href="javascript:" id="return-to-top"><i class="fa fa-hand-o-up"></i></a>
-  <div class="inner-banner">
-    <img src="../../../assets/images/service-banner.jpg"/>
 
-    <div class="innerbanner-content">
+  <!--Other Pages Header-->
+  <div [hidden]="_router.url === '/'">
+    <div class="inner-banner">
+      <img src="../../../assets/images/service-banner.jpg"/>
+
+      <div class="innerbanner-content">
+        <div class="container">
+          <h1>{{pageTitle}}</h1>
+          <app-breadcrumb></app-breadcrumb>
+        </div>
+      </div>
+    </div>
+    <div class="uppperlayer-wrapper">
       <div class="container">
-        <h1>{{pageTitle}}</h1>
-        <app-breadcrumb></app-breadcrumb>
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="logo-res">
+              <a routerLink="/"><img src="../../../assets/images/logos.png"></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="innerheader">
+          <div class="row">
+            <div class="col-xs-12 col-sm-3 col-md-3">
+              <a id="logo" routerLink="/"><img src="../../../assets/images/logos.png"></a>
+            </div>
+            <div class="col-xs-12 col-sm-9 col-md-9">
+              <div class="topbar">
+                <ul class="top-contact">
+                  <li class="fa fa-phone"><a href="#_">(+1) 3214 546789</a></li>
+                  <li class="fa fa-envelope"><a href="mailto:info@domain.com">info@domain.com</a></li>
+                </ul>
+                <ul class="topbar-right">
+                  <li><a *ngIf="!isLoggedIn" routerLink="/register" routerLinkActive="active-link">Account</a></li>
+                  <li><a *ngIf="isLoggedIn">Welcome {{userData.name}}</a></li>
+                  <li><a href="#">عربى</a></li>
+                  <li><a href="#">USD</a></li>
+                </ul>
+              </div>
+
+              <nav>
+                <ul>
+                  <li><a routerLink="/about-us" routerLinkActive="active-link">ABOUT US</a></li>
+                  <li><a routerLink="/car-listings" routerLinkActive="active-link">LISTING</a></li>
+                  <li><a routerLink="/services" routerLinkActive="active-link">SERVICES</a></li>
+                  <li><a routerLink="/how-it-works" routerLinkActive="active-link">HOW IT WORKS</a></li>
+                  <li><a routerLink="/news" routerLinkActive="active-link">NEWS</a></li>
+                  <li><a routerLink="/contact-us" routerLinkActive="active-link">CONTACT US</a></li>
+                </ul>
+              </nav>
+              <a routerLink="/reservation" class="res-tab"><img src="../../../assets/images/reservation-btn.png"></a>
+            </div>
+          </div>
+        </div><!-- Inner Header -->
       </div>
     </div>
   </div>
-  <div class="uppperlayer-wrapper">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="logo-res">
-            <a routerLink="/"><img src="../../../assets/images/logos.png"></a>
+
+  <!--Index Page Header-->
+  <div *ngIf="_router.url === '/'">
+    <section class="slider-area">
+      <div class="slide-item"
+           style="background:url('../../../assets/images/banner-1.jpg')  no-repeat scroll center top #000 ; -o-background-size: cover;    -moz-background-size: cover;    -webkit-background-size:cover;    background-size: cover; height: 800px; "></div>
+    </section>
+    <div class="uppperlayer-wrapper">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="logo-res">
+              <a routerLink="/"><img src="../../../assets/images/logos.png"></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="innerheader">
+          <div class="row">
+            <div class="col-xs-12 col-sm-3 col-md-3">
+              <a id="logo" routerLink="/"><img src="../../../assets/images/logos.png"></a>
+            </div>
+            <div class="col-xs-12 col-sm-9 col-md-9">
+              <div class="topbar">
+                <ul class="top-contact">
+                  <li class="fa fa-phone"><a href="#_">(+1) 3214 546789</a></li>
+                  <li class="fa fa-envelope"><a href="mailto:info@domain.com">info@domain.com</a></li>
+                </ul>
+                <ul class="topbar-right">
+                  <li><a routerLink="/register" routerLinkActive="active-link">Account</a></li>
+                  <li><a href="#">عربى</a></li>
+                  <li><a href="#">USD</a></li>
+                </ul>
+              </div>
+
+              <nav>
+                <ul>
+                  <li><a routerLink="/about-us" routerLinkActive="active-link">ABOUT US</a></li>
+                  <li><a routerLink="/car-listings" routerLinkActive="active-link">LISTING</a></li>
+                  <li><a routerLink="/services" routerLinkActive="active-link">SERVICES</a></li>
+                  <li><a routerLink="/how-it-works" routerLinkActive="active-link">HOW IT WORKS</a></li>
+                  <li><a routerLink="/news" routerLinkActive="active-link">NEWS</a></li>
+                  <li><a routerLink="/contact-us" routerLinkActive="active-link">CONTACT US</a></li>
+                </ul>
+              </nav>
+              <a routerLink="/reservation" class="res-tab"><img src="../../../assets/images/reservation-btn.png"></a>
+            </div>
+          </div>
+        </div><!-- Inner Header -->
+      </div>
+    </div>
+    <div class="slider-form-main">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 col-md-6">
+            <div class="slider-form">
+              <form>
+                <div class="label-form">
+                  <div class="form-group">
+                    <label class="col-form-label">Picking Up</label>
+                    <div class="map-icon">
+                      <input type="text" class="form-control" placeholder="ZIP, City, Airport or Address">
+                    </div>
+
+                  </div>
+                </div>
+
+                <div class="label-form">
+                  <div class="form-group">
+                    <label class="col-form-label">Dropping Off</label>
+                    <div class="map-icon">
+                      <input type="text" class="form-control" placeholder="ZIP, City, Airport or Address">
+                    </div>
+
+                  </div>
+                </div>
+
+
+                <div class="form-row">
+                  <div class="label-select">
+                    <label for="inputPickupDate" class="col-form-label">Pickup Date</label>
+                    <select id="inputPickupDate" class="form-control">
+                      <option>29 Apr</option>
+                    </select>
+                  </div>
+                  <div class="label-select pull-right">
+                    <label for="inputPickUpTime" class="col-form-label">Pickup Time</label>
+                    <select id="inputPickUpTime" class="form-control">
+                      <option>15:30</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="label-select">
+                    <label for="inputReturnDate" class="col-form-label">Return Date</label>
+                    <select id="inputReturnDate" class="form-control">
+                      <option>29 Apr</option>
+                    </select>
+                  </div>
+                  <div class="label-select pull-right">
+                    <label for="inputReturnTime" class="col-form-label">Return Time</label>
+                    <select id="inputReturnTime" class="form-control">
+                      <option>15:30</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="label-select">
+                    <label for="inputCarBrand" class="col-form-label">Car Brand</label>
+                    <select id="inputCarBrand" class="form-control">
+                      <option *ngFor="let brand of brands" [value]="brand.id">{{brand.brand}}</option>
+                    </select>
+                  </div>
+                  <div class="label-select pull-right">
+                    <label for="inputCarType" class="col-form-label">Car Type</label>
+                    <select id="inputCarType" class="form-control">
+                      <option *ngFor="let type of types" [value]="type.id">{{type.type}}</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-row">
+
+                  <div class="promo-feild-btn">
+                    <input type="text" name="" placeholder="Promo Code (Optional)" class="form-control">
+                    <div class="form-btn pull-right">
+                      <a href="#"><img src="../../../assets/images/search-btn.jpg"></a>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <div class="col-xs-12 col-sm-6 col-md-6">
+            <div class="slider-form-info">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d2965.0824050173574!2d-93.63905729999999!3d41.998507000000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sWebFilings%2C+University+Boulevard%2C+Ames%2C+IA!5e0!3m2!1sen!2sus!4v1390839289319"
+                width="100%" height="540" frameborder="0" style="border:0"></iframe>
+              <!--   <h1><a href="https://maps.google.com/" target="_blank">We Are Wheel</a></h1>
+                <h2>Search - Hire - Compare - Save</h2>
+                <h3>We Help you Rent A Car</h3> -->
+
+            </div>
           </div>
         </div>
       </div>
-
-      <div class="innerheader">
-        <div class="row">
-          <div class="col-xs-12 col-sm-3 col-md-3">
-            <a id="logo" routerLink="/"><img src="../../../assets/images/logos.png"></a>
-          </div>
-          <div class="col-xs-12 col-sm-9 col-md-9">
-            <div class="topbar">
-              <ul class="top-contact">
-                <li class="fa fa-phone"><a href="#_">(+1) 3214 546789</a></li>
-                <li class="fa fa-envelope"><a href="mailto:info@domain.com">info@domain.com</a></li>
-              </ul>
-              <ul class="topbar-right">
-                <li><a *ngIf="!isLoggedIn" routerLink="/register" routerLinkActive="active-link">Account</a></li>
-                <li><a *ngIf="isLoggedIn">Welcome {{userData.name}}</a></li>
-                <li><a href="#">عربى</a></li>
-                <li><a href="#">USD</a></li>
-              </ul>
-            </div>
-
-            <nav>
-              <ul>
-                <li><a routerLink="/about-us" routerLinkActive="active-link">ABOUT US</a></li>
-                <li><a routerLink="/car-listings" routerLinkActive="active-link">LISTING</a></li>
-                <li><a routerLink="/services" routerLinkActive="active-link">SERVICES</a></li>
-                <li><a routerLink="/how-it-works" routerLinkActive="active-link">HOW IT WORKS</a></li>
-                <li><a routerLink="/news" routerLinkActive="active-link">NEWS</a></li>
-                <li><a routerLink="/contact-us" routerLinkActive="active-link">CONTACT US</a></li>
-              </ul>
-            </nav>
-            <a routerLink="/reservation" class="res-tab"><img src="../../../assets/images/reservation-btn.png"></a>
-          </div>
-        </div>
-      </div><!-- Inner Header -->
     </div>
   </div>
 </header>
