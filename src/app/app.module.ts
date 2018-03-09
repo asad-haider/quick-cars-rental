@@ -22,19 +22,22 @@ import {BrandService} from './services/brand.service';
 import {TypeService} from './services/type.service';
 import {CategoryService} from './services/category.service';
 import {ListingService} from './services/listing.service';
-import {ArrayFilter} from './pipes/ArrayFilter';
+import {ArrayFilter} from './pipes/array.filter';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NewsService} from './services/news.service';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {AuthService} from './services/auth.service';
 import {BreadcrumbComponent} from './components/breadcrumb/breadcrumb.component';
-import {TokenInterceptor} from './interceptors/TokenInterceptor';
+import {TokenInterceptor} from './interceptors/token.interceptor';
 import {NgProgressModule} from '@ngx-progressbar/core';
 import {NgProgressHttpModule} from '@ngx-progressbar/http';
-import {AuthInterceptor} from './interceptors/AuthInterceptor';
+import {AuthInterceptor} from './interceptors/auth.interceptor';
 import {AgmCoreModule} from '@agm/core';
 import {SubscriptionService} from './services/subscription.service';
-import {DataService} from './services/DataService';
+import {DataService} from './services/data.service';
+import { SubscriptionComponent } from './components/subscription/subscription.component';
+import {FeaturedListingResolve} from './resolvers/featuredlisting.resolve';
+import {FeaturedNewsResolve} from './resolvers/featurednews.resolve';
 
 @NgModule({
   declarations: [
@@ -57,7 +60,9 @@ import {DataService} from './services/DataService';
     // Filters
     ArrayFilter,
 
-    BreadcrumbComponent
+    BreadcrumbComponent,
+
+    SubscriptionComponent
   ],
   imports: [
     AgmCoreModule.forRoot({
@@ -92,6 +97,8 @@ import {DataService} from './services/DataService';
       useClass: AuthInterceptor,
       multi: true
     },
+    FeaturedListingResolve,
+    FeaturedNewsResolve,
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA]

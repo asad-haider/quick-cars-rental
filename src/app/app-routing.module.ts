@@ -11,6 +11,8 @@ import {ListingDetailsComponent} from './components/listing-details/listing-deta
 import {NewsDetailsComponent} from './components/news-details/news-details.component';
 import {RegisterComponent} from './components/register/register.component';
 import {ReservationComponent} from './components/reservation/reservation.component';
+import {FeaturedListingResolve} from './resolvers/featuredlisting.resolve';
+import {FeaturedNewsResolve} from './resolvers/featurednews.resolve';
 
 const routes: Routes = [
     {
@@ -20,6 +22,10 @@ const routes: Routes = [
           path: '',
           component: HomeComponent,
           pathMatch: 'full',
+          resolve: {
+            featuredListings: FeaturedListingResolve,
+            featuredNews: FeaturedNewsResolve,
+          },
         },
         {
           path: 'about-us',

@@ -3,7 +3,7 @@ import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
 import {filter, map} from 'rxjs/operators';
 import {AuthService} from '../../services/auth.service';
 import {IUser} from '../../interfaces/IUser';
-import {DataService} from '../../services/DataService';
+import {DataService} from '../../services/data.service';
 
 @Component({
   selector: 'app-header',

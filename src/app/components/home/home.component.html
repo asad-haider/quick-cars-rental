@@ -221,51 +221,28 @@
       <h4 class="wow bounceInDown"><span>We have a Great</span>
         <strong>collection of <span class="orange">vehicles</span></strong></h4>
     </div>
-
     <div class="container">
-      <div class="rentcar-slider">
-        <div class="rent-item">
+      <div class="rentcar-slider" *ngIf="featuredListings.length">
+        <div class="rent-item" *ngFor="let featuredListing of featuredListings;">
           <div class="col-xs-12 col-sm-5 col-md-5">
-            <h4>2016 Nissan Juke</h4>
-            <div class="cat-name">Luxury Sports Car</div>
-            <div class="prices">$79 <span>/Day</span></div>
-            <p>Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsu nec sagittis sem nibh id
-              elit. </p>
-
+            <h4>{{featuredListing.name}}</h4>
+            <div class="cat-name">{{featuredListing.category.category}}</div>
+            <div class="prices">${{featuredListing.rate}} <span>/Day</span></div>
+            <p>{{featuredListing.description}}</p>
             <ul>
-              <li class="bag-icon">2 Bags</li>
-              <li class="passenger-icon">2 Passengers</li>
-              <li class="mpg">5.6/100 MPG</li>
+              <li *ngFor="let feature of featuredListing.features;" class="{{feature.icon}}">
+                {{feature.feature}}
+              </li>
             </ul>
             <div class="rent-item-btn">
-              <a href="#"><img src="../../../assets/images/view-rent-btn.png"></a>
+              <a routerLink="/car-listings"><img src="../../../assets/images/view-rent-btn.png"></a>
             </div>
           </div>
           <div class="col-xs-12 col-sm-7 col-md-7">
-            <img src="../../../assets/images/rent-car.jpg">
+            <img src="{{BASE_URL}}/resize/{{featuredListing.image_url}}"
+                 [routerLink]="['/car-listings/details', featuredListing.id]"
+            >
           </div>
-        </div>
-        <div class="rent-item">
-          <div class="col-xs-12 col-sm-5 col-md-5">
-            <h4>2016 Nissan Juke</h4>
-            <div class="cat-name">Luxury Sports Car</div>
-            <div class="prices">$79pre <span>/Day</span></div>
-            <p>Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsu nec sagittis sem nibh id
-              elit. </p>
-
-            <ul>
-              <li class="bag-icon">2 Bags</li>
-              <li class="passenger-icon">2 Passengers</li>
-              <li class="mpg">5.6/100 MPG</li>
-            </ul>
-            <div class="rent-item-btn">
-              <a href="#"><img src="../../../assets/images/view-rent-btn.png"></a>
-            </div>
-          </div>
-          <div class="col-xs-12 col-sm-7 col-md-7">
-            <img src="../../../assets/images/rent-car.jpg">
-          </div>
-
         </div>
       </div>
     </div>
@@ -326,45 +303,17 @@
         <h4 class="wow bounceInDown"><span>our News</span>
           <strong>the Latest<span class="orange"> news</span> </strong></h4>
       </div>
-
-      <div class="col-xs-12 col-sm-4 col-md-4 newsboxes">
-        <div class="content-box ">
-
-          <div class="datearea">29 April</div>
-          <div class="thumb-icon"><a routerLink="/news-details"><img src="../../../assets/images/news-1.jpg"></a></div>
-          <h3>Monotonectally build distinctive convergence and an attempt</h3>
-          <p>Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad... </p>
-
-          <a routerLink="/news-details">Read more > </a>
+      <div class="col-xs-12 col-sm-4 col-md-4 newsboxes"
+           *ngFor="let news of featuredNews">
+        <div class="content-box">
+          <div class="datearea">{{ news.created_at | date: 'dd MMMM yyyy'}}</div>
+          <div class="thumb-icon">
+            <a [routerLink]="['news/details', news.id]"><img src="{{BASE_URL}}/resize/{{news.banner_image}}"></a>
+          </div>
+          <h3>{{news.title}}</h3>
+          <p>{{news.description}}</p>
+          <a [routerLink]="['news/details', news.id]">Read more > </a>
         </div>
-
-
-      </div>
-      <div class="col-xs-12 col-sm-4 col-md-4 newsboxes">
-        <div class="content-box ">
-
-          <div class="datearea">29 April</div>
-          <div class="thumb-icon"><a routerLink="/news-details"><img src="../../../assets/images/new-2.jpg"></a></div>
-          <h3>Monotonectally build distinctive convergence and an attempt</h3>
-          <p>Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad... </p>
-
-          <a routerLink="/news-details">Read more > </a>
-        </div>
-
-
-      </div>
-      <div class="col-xs-12 col-sm-4 col-md-4 newsboxes">
-        <div class="content-box ">
-
-          <div class="datearea">29 April</div>
-          <div class="thumb-icon"><a routerLink="/news-details"><img src="../../../assets/images/news-3.jpg"></a></div>
-          <h3>Monotonectally build distinctive convergence and an attempt</h3>
-          <p>Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad... </p>
-
-          <a routerLink="/news-details">Read more > </a>
-        </div>
-
-
       </div>
     </div>
   </div>
@@ -390,27 +339,5 @@
       </div>
     </div>
   </section>
-  <section class="subsciber-area">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-6">
-          <h3>Newsletter Signup</h3>
-          <h4>Subscribe & get <span class="orange">20%</span> Off</h4>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-6">
-          <form method="post" action="">
-            <p class="wysija-paragraph">
-              <input type="text" title="Email Address" placeholder="Email Address"
-                     name="inputSubscribeToNewsLetter"
-                     [(ngModel)]="emailAddress">
-            </p>
-
-            <input class="wysija-submit wysija-submit-field" type="submit" value="Subscribe!"
-                   (click)="subscribeToNewsLetter()">
-          </form>
-
-        </div>
-      </div>
-    </div>
-  </section>
+  <app-subscription></app-subscription>
 </div>

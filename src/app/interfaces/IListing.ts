@@ -56,6 +56,7 @@ declare module IListing {
     brand_id: number;
     rate: number;
     features: Feature[];
+    category?: Category;
     status: string;
     created_at: string;
     updated_at: string;

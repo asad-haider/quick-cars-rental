@@ -15,6 +15,10 @@ export class NewsService {
     return this.http.get<IResponse<IPaginateResponse<INews[]>>>(`${Constants.BASE_API_URL}/news`);
   }
 
+  getFeaturedNews() {
+    return this.http.get<IResponse<INews[]>>(`${Constants.BASE_API_URL}/news/featured`);
+  }
+
   getNewsAtUrl(url: string) {
     return this.http.get<IResponse<IPaginateResponse<INews[]>>>(url);
   }

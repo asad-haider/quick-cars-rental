@@ -30,7 +30,7 @@ export class NewsComponent implements OnInit {
         err => console.error(err),
       );
   }
-
+  
   getNewsByPageNumber(url: string, currentPage: number) {
     this._newsService.getNewsAtUrl(`${url}?page=${currentPage}`)
       .subscribe(

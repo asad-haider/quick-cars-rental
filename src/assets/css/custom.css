@@ -759,55 +759,6 @@ footer .email {
   padding: 10px 10px 10px 25px;
 }
 
-.subsciber-area {
-  padding: 60px 0;
-  background: #eceff1;
-}
-
-section.subsciber-area h3 {
-  font-size: 22px;
-  line-height: 18px;
-  font-weight: 600;
-  color: #262626;
-  text-transform: uppercase;
-  margin-top: 0px;
-}
-
-section.subsciber-area h4 {
-  font-size: 30px;
-  font-weight: bold;
-  color: #262626;
-  text-transform: uppercase;
-}
-
-section.subsciber-area .col-md-6 {
-  position: relative;
-}
-
-section.subsciber-area h4 .orange {
-  color: #f05423;
-}
-
-section.subsciber-area p.wysija-paragraph input {
-  width: 100%;
-  padding: 18px;
-  border: 0px
-}
-
-section.subsciber-area .wysija-submit {
-  position: absolute;
-  top: 0px;
-  right: 0;
-  background: url(../images/subscriber-btn.jpg) no-repeat 0 0;
-  width: 157px;
-  height: 60px;
-  border: 0;
-  margin: 0;
-  font-size: 0;
-  text-indent: -999;
-  cursor: pointer;
-}
-
 .happy-client {
   position: relative;
   background: url(../images/client-bg.jpg) no-repeat;
@@ -1919,23 +1870,6 @@ ul.topbar-right li {
 .about-temp {
   background: none !important;
   margin: 0 !important;
-}
-
-.sub-inner {
-  background-color: #02528a;
-}
-
-.sub-inner h3 {
-  margin: 0px;
-  font-size: 20px;
-  color: #ffffff !important;
-  font-weight: 300 !important;
-  font-family: 'Source Sans Pro', sans-serif;
-}
-
-.sub-inner h4 {
-  color: #ffffff !important;
-  margin-bottom: 0px;
 }
 
 /*********************

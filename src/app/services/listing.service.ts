@@ -22,6 +22,10 @@ export class ListingService {
     });
   }
 
+  getFeaturedListings() {
+    return this.http.get<IResponse<IListing.ListingItem[]>>(`${Constants.BASE_API_URL}/listings/featured`);
+  }
+
   getListingById(id: number) {
     return this.http.get<IResponse<IListing.Detail>>(`${Constants.BASE_API_URL}/listing/${id}`);
   }

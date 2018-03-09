@@ -2,9 +2,12 @@ import {AfterViewInit, Component, ElementRef, NgZone, OnInit, ViewChild} from '@
 import {initClientSaysSlider, initAreaSlider, initRentCarSlider} from '../../../assets/js/sliders';
 import {BrandService} from '../../services/brand.service';
 import {TypeService} from '../../services/type.service';
-import {SubscriptionService} from '../../services/subscription.service';
-import {DataService} from '../../services/DataService';
+import {DataService} from '../../services/data.service';
 import {MapsAPILoader} from '@agm/core';
+import {ListingService} from '../../services/listing.service';
+import {Constants} from '../../constants';
+import {ActivatedRoute} from '@angular/router';
+import {INews} from '../../interfaces/INews';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +18,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   public brands;
   public types;
-  public emailAddress;
 
   public latitude: number;
   public longitude: number;
@@ -33,47 +35,32 @@ export class HomeComponent implements OnInit, AfterViewInit {
   public dropOfAddress: ElementRef;
 
 
-  constructor(private _brandService: BrandService, private _typeService: TypeService, private _subscriptionService: SubscriptionService,
-              private mapsAPILoader: MapsAPILoader, private ngZone: NgZone, private _dataService: DataService) {
+  public BASE_URL = Constants.BASE_URL;
+
+  featuredListings: IListing.ListingItem[];
+  featuredNews: INews[];
+
+  constructor(private _brandService: BrandService, private _typeService: TypeService,
+              private mapsAPILoader: MapsAPILoader, private ngZone: NgZone, private _dataService: DataService,
+              private _listingService: ListingService,  private _route: ActivatedRoute) {
   }
 
   ngOnInit() {
     this.getBrands();
     this.getTypes();
-
+    // this.getFeaturedListings();
     this.setCurrentPosition();
+    this.loadMap();
 
-    this.mapsAPILoader.load().then(() => {
-      const pickupAddressAutocomplete = new google.maps.places.Autocomplete(this.pickupAddress.nativeElement, {
-        types: ['address']
-      });
-      pickupAddressAutocomplete.addListener('place_changed', () => {
-        this.ngZone.run(() => {
-          const place: google.maps.places.PlaceResult = pickupAddressAutocomplete.getPlace();
-          if (place.geometry === undefined || place.geometry === null) {
-            return;
-          }
-          this.pickupLatitude = place.geometry.location.lat();
-          this.pickupLongitude = place.geometry.location.lng();
-          this.zoom = 12;
-        });
+    this._route.data
+      .subscribe((data: { featuredListings: IListing.ListingItem[] }) => {
+        this.featuredListings = data.featuredListings;
       });
 
-      const dropdownAddressAutocomplete = new google.maps.places.Autocomplete(this.dropOfAddress.nativeElement, {
-        types: ['address']
+    this._route.data
+      .subscribe((data: { featuredNews: INews[] }) => {
+        this.featuredNews = data.featuredNews;
       });
-      dropdownAddressAutocomplete.addListener('place_changed', () => {
-        this.ngZone.run(() => {
-          const place: google.maps.places.PlaceResult = dropdownAddressAutocomplete.getPlace();
-          if (place.geometry === undefined || place.geometry === null) {
-            return;
-          }
-          this.dropOfLatitude = place.geometry.location.lat();
-          this.dropOfLongitude = place.geometry.location.lng();
-          this.zoom = 12;
-        });
-      });
-    });
   }
 
   private setCurrentPosition() {
@@ -108,16 +95,50 @@ export class HomeComponent implements OnInit, AfterViewInit {
       );
   }
 
-  subscribeToNewsLetter() {
-    this._subscriptionService.subscribeToNewsLetter(this.emailAddress).subscribe(
-      data => {
-        // this.types = data.Result;
-        console.log(data.Message);
-      },
-      err => console.error(err),
-    );
-  }
 
+  // getFeaturedListings() {
+  //   this._listingService.getFeaturedListings()
+  //     .subscribe(
+  //       data => {
+  //         this.featuredListings = data.Result;
+  //       },
+  //       err => console.error(err),
+  //     );
+  // }
+
+  loadMap() {
+    this.mapsAPILoader.load().then(() => {
+      const pickupAddressAutocomplete = new google.maps.places.Autocomplete(this.pickupAddress.nativeElement, {
+        types: ['address']
+      });
+      pickupAddressAutocomplete.addListener('place_changed', () => {
+        this.ngZone.run(() => {
+          const place: google.maps.places.PlaceResult = pickupAddressAutocomplete.getPlace();
+          if (place.geometry === undefined || place.geometry === null) {
+            return;
+          }
+          this.pickupLatitude = place.geometry.location.lat();
+          this.pickupLongitude = place.geometry.location.lng();
+          this.zoom = 12;
+        });
+      });
+
+      const dropdownAddressAutocomplete = new google.maps.places.Autocomplete(this.dropOfAddress.nativeElement, {
+        types: ['address']
+      });
+      dropdownAddressAutocomplete.addListener('place_changed', () => {
+        this.ngZone.run(() => {
+          const place: google.maps.places.PlaceResult = dropdownAddressAutocomplete.getPlace();
+          if (place.geometry === undefined || place.geometry === null) {
+            return;
+          }
+          this.dropOfLatitude = place.geometry.location.lat();
+          this.dropOfLongitude = place.geometry.location.lng();
+          this.zoom = 12;
+        });
+      });
+    });
+  }
 
   ngAfterViewInit(): void {
     initClientSaysSlider();
