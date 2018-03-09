@@ -239,9 +239,9 @@
             </div>
           </div>
           <div class="col-xs-12 col-sm-7 col-md-7">
-            <img src="{{BASE_URL}}/resize/{{featuredListing.image_url}}"
-                 [routerLink]="['/car-listings/details', featuredListing.id]"
-            >
+            <a [routerLink]="['/car-listings/details', featuredListing.id]">
+              <img src="{{BASE_URL}}/resize/{{featuredListing.image_url}}">
+            </a>
           </div>
         </div>
       </div>

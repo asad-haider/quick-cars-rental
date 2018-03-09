@@ -42,13 +42,12 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   constructor(private _brandService: BrandService, private _typeService: TypeService,
               private mapsAPILoader: MapsAPILoader, private ngZone: NgZone, private _dataService: DataService,
-              private _listingService: ListingService,  private _route: ActivatedRoute) {
+              private _listingService: ListingService, private _route: ActivatedRoute) {
   }
 
   ngOnInit() {
     this.getBrands();
     this.getTypes();
-    // this.getFeaturedListings();
     this.setCurrentPosition();
     this.loadMap();
 
@@ -94,17 +93,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
         err => console.error(err),
       );
   }
-
-
-  // getFeaturedListings() {
-  //   this._listingService.getFeaturedListings()
-  //     .subscribe(
-  //       data => {
-  //         this.featuredListings = data.Result;
-  //       },
-  //       err => console.error(err),
-  //     );
-  // }
 
   loadMap() {
     this.mapsAPILoader.load().then(() => {
