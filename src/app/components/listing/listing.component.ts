@@ -53,7 +53,7 @@ export class ListingComponent implements OnInit, AfterViewInit {
         data => {
           this.brands = data.Result;
         },
-        err => console.error(err),
+        err => console.error(err)
       );
   }
 
@@ -63,7 +63,7 @@ export class ListingComponent implements OnInit, AfterViewInit {
         data => {
           this.listingResponse = data.Result;
         },
-        err => console.error(err),
+        err => console.error(err)
       );
   }
 
@@ -73,7 +73,7 @@ export class ListingComponent implements OnInit, AfterViewInit {
         data => {
           this.listingResponse = data.Result;
         },
-        err => console.error(err),
+        err => console.error(err)
       );
   }
 }

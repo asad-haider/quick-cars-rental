@@ -244,10 +244,13 @@
         <div class="col-xs-12 col-sm-6 col-md-6">
           <form method="post" action="">
             <p class="wysija-paragraph">
-              <input type="text" title="Email Address" placeholder="Email Address" value="">
+              <input type="text" title="Email Address" placeholder="Email Address"
+                     name="inputSubscribeToNewsLetter"
+                     [(ngModel)]="emailAddress">
             </p>
 
-            <input class="wysija-submit wysija-submit-field" type="submit" value="Subscribe!">
+            <input class="wysija-submit wysija-submit-field" type="submit" value="Subscribe!"
+                   (click)="subscribeToNewsLetter()">
           </form>
 
         </div>

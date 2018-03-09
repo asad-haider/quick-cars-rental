@@ -23,7 +23,7 @@ import {TypeService} from './services/type.service';
 import {CategoryService} from './services/category.service';
 import {ListingService} from './services/listing.service';
 import {ArrayFilter} from './pipes/ArrayFilter';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NewsService} from './services/news.service';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {AuthService} from './services/auth.service';
@@ -31,6 +31,10 @@ import {BreadcrumbComponent} from './components/breadcrumb/breadcrumb.component'
 import {TokenInterceptor} from './interceptors/TokenInterceptor';
 import {NgProgressModule} from '@ngx-progressbar/core';
 import {NgProgressHttpModule} from '@ngx-progressbar/http';
+import {AuthInterceptor} from './interceptors/AuthInterceptor';
+import {AgmCoreModule} from '@agm/core';
+import {SubscriptionService} from './services/subscription.service';
+import {DataService} from './services/DataService';
 
 @NgModule({
   declarations: [
@@ -56,10 +60,15 @@ import {NgProgressHttpModule} from '@ngx-progressbar/http';
     BreadcrumbComponent
   ],
   imports: [
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDgOtJJNsjw5UcukGWEw6HyGiyxnz_aHj8',
+      libraries: ['places']
+    }),
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     NgxPaginationModule,
     NgProgressModule.forRoot(),
     NgProgressHttpModule
@@ -71,11 +80,18 @@ import {NgProgressHttpModule} from '@ngx-progressbar/http';
     ListingService,
     NewsService,
     AuthService,
+    SubscriptionService,
+    DataService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
       multi: true
-    }
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    },
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA]

@@ -23,11 +23,10 @@ export class AuthService {
   logout() {
     return this.http.post<IResponse<any>>(`${Constants.BASE_API_URL}/logout`, {}, {
       headers: {
-        Authorization: this.getToken()
+        'Auth-Check': ''
       }
     }).pipe(map(data => {
-      localStorage.removeItem('token');
-      localStorage.removeItem('userData');
+      this.removeToken();
     }));
   }
 
@@ -37,6 +36,11 @@ export class AuthService {
 
   public setToken(token) {
     localStorage.setItem('token', token);
+  }
+
+  public removeToken() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('userData');
   }
 
   public isAuthenticated(): boolean {
