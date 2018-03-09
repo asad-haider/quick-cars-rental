@@ -1,3 +1,5 @@
+@import "~ng-pick-datetime/assets/style/picker.min.css";
+
 /* You can add global styles to this file, and also import other style files */
 .active-link {
   color: #f05423 !important;

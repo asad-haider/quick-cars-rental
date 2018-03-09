@@ -53,7 +53,10 @@
             <form>
               <div class="form-row">
                 <div class="form-group col-md-6">
-                  <input type="text" class="form-control" placeholder="First Name">
+                  <input type="text" class="form-control"
+                         [(ngModel)]="registerPayload.name"
+                         name="firstName"
+                         placeholder="First Name">
                 </div>
                 <div class="form-group col-md-6">
                   <input type="text" class="form-control" placeholder="Last Name">
@@ -61,18 +64,26 @@
               </div>
               <div class="form-row">
                 <div class="form-group col-md-6">
-                  <input type="text" class="form-control" placeholder="Email">
+                  <input type="text" class="form-control" placeholder="Email"
+                         [(ngModel)]="registerPayload.email"
+                         name="email">
                 </div>
                 <div class="form-group col-md-6">
-                  <input type="text" class="form-control" placeholder="Username">
+                  <input type="text" class="form-control" placeholder="Username"
+                         [(ngModel)]="registerPayload.username"
+                         name="username">
                 </div>
               </div>
               <div class="form-row">
                 <div class="form-group col-md-6">
-                  <input type="password" class="form-control" placeholder="Password">
+                  <input type="password" class="form-control" placeholder="Password"
+                         [(ngModel)]="registerPayload.password"
+                         name="password">
                 </div>
                 <div class="form-group col-md-6">
-                  <input type="password" class="form-control" placeholder="Confirm Password">
+                  <input type="password" class="form-control" placeholder="Confirm Password"
+                         [(ngModel)]="registerPayload.password_confirmation"
+                         name="confirmPassword">
                 </div>
               </div>
               <div class="form-row">
@@ -80,13 +91,16 @@
                 <div class="form-group col-md-6">
                   <div class="form-check">
                     <label class="form-check-label">
-                      <input class="form-check-input" type="checkbox"> I agree with the <a href="#">Terms and
-                      Conditions</a>
+                      <input class="form-check-input" type="checkbox"
+                             name="agreeTermAndConditions"
+                             [(ngModel)]="registerPayload.agreeTermAndConditions">
+                      I agree with the <a href="#">Terms and Conditions</a>
                     </label>
                   </div>
                 </div>
                 <div class="form-group col-md-6">
-                  <button type="submit"><img src="../../../assets/images/signup-btn.png" class="img-responsive">
+                  <button type="submit" (click)="register()" [disabled]="!registerPayload.agreeTermAndConditions">
+                    <img src="../../../assets/images/signup-btn.png" class="img-responsive">
                   </button>
                 </div>
 

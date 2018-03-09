@@ -35,9 +35,11 @@ import {AuthInterceptor} from './interceptors/auth.interceptor';
 import {AgmCoreModule} from '@agm/core';
 import {SubscriptionService} from './services/subscription.service';
 import {DataService} from './services/data.service';
-import { SubscriptionComponent } from './components/subscription/subscription.component';
+import {SubscriptionComponent} from './components/subscription/subscription.component';
 import {FeaturedListingResolve} from './resolvers/featuredlisting.resolve';
 import {FeaturedNewsResolve} from './resolvers/featurednews.resolve';
+import {OwlDateTimeModule, OwlNativeDateTimeModule} from 'ng-pick-datetime';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -70,13 +72,16 @@ import {FeaturedNewsResolve} from './resolvers/featurednews.resolve';
       libraries: ['places']
     }),
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     NgxPaginationModule,
     NgProgressModule.forRoot(),
-    NgProgressHttpModule
+    NgProgressHttpModule,
+    OwlDateTimeModule,
+    OwlNativeDateTimeModule,
   ],
   providers: [
     BrandService,

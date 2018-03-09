@@ -97,13 +97,5 @@ module.exports = {
     $('.s-equal').matchHeight();
     $('.content-box').matchHeight();
     $('.third-listing').matchHeight();
-
-
-    $('#datetimepicker10').datetimepicker();
-    $('#datetimepicker3').datetimepicker();
-    $('#datetimepicker11').datetimepicker();
-    $('#datetimepicker33').datetimepicker();
-
-
   }
 };

@@ -1,5 +1,5 @@
 import {AfterViewInit, Component, ElementRef, Input, NgZone, OnInit, ViewChild} from '@angular/core';
-import {initClientSaysSlider, initAreaSlider, initRentCarSlider} from '../../../assets/js/sliders';
+import {initClientSaysSlider, initAreaSlider, initRentCarSlider, init} from '../../../assets/js/sliders';
 import {BrandService} from '../../services/brand.service';
 import {TypeService} from '../../services/type.service';
 import {DataService} from '../../services/data.service';
@@ -43,6 +43,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   public isLoggedIn: boolean;
   public userData: IUser;
+
+  public reservation: any = {};
 
   constructor(private _brandService: BrandService, private _typeService: TypeService,
               private mapsAPILoader: MapsAPILoader, private ngZone: NgZone, private _dataService: DataService,

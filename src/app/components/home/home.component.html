@@ -75,38 +75,28 @@
                     <input type="text" #dropOfAddress class="form-control"
                            placeholder="ZIP, City, Airport or Address">
                   </div>
-
                 </div>
               </div>
 
-
-              <div class="form-row">
-                <div class="label-select">
+              <div class="">
+                <div class="form-group">
                   <label for="inputPickupDate" class="col-form-label">Pickup Date</label>
-                  <select id="inputPickupDate" class="form-control">
-                    <option>29 Apr</option>
-                  </select>
-                </div>
-                <div class="label-select pull-right">
-                  <label for="inputPickUpTime" class="col-form-label">Pickup Time</label>
-                  <select id="inputPickUpTime" class="form-control">
-                    <option>15:30</option>
-                  </select>
+                  <input [(ngModel)]="reservation.pickUpDateTime"
+                         class="form-control"
+                         name="inputPickupDate" id="inputPickupDate"
+                         [owlDateTimeTrigger]="pickupDateTimePicker" [owlDateTime]="pickupDateTimePicker">
+                  <owl-date-time #pickupDateTimePicker></owl-date-time>
                 </div>
               </div>
 
-              <div class="form-row">
-                <div class="label-select">
-                  <label for="inputReturnDate" class="col-form-label">Return Date</label>
-                  <select id="inputReturnDate" class="form-control">
-                    <option>29 Apr</option>
-                  </select>
-                </div>
-                <div class="label-select pull-right">
-                  <label for="inputReturnTime" class="col-form-label">Return Time</label>
-                  <select id="inputReturnTime" class="form-control">
-                    <option>15:30</option>
-                  </select>
+              <div class="">
+                <div class="form-group">
+                  <label for="inputDropOfDateTime" class="col-form-label">Dropping Date</label>
+                  <input [(ngModel)]="reservation.dropOfDateTime"
+                         name="inputDropOfDateTime" id="inputDropOfDateTime"
+                         class="form-control"
+                         [owlDateTimeTrigger]="dropOfDateTimePicker" [owlDateTime]="dropOfDateTimePicker">
+                  <owl-date-time #dropOfDateTimePicker></owl-date-time>
                 </div>
               </div>
 

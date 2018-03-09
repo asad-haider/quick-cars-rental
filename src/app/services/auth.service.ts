@@ -52,4 +52,8 @@ export class AuthService {
   getUserInfo() {
     return JSON.parse(localStorage.getItem('userData')) as IUser;
   }
+
+  register(payload) {
+    return this.http.post<IResponse<any>>(`${Constants.BASE_API_URL}/register`, payload);
+  }
 }
