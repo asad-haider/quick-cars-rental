@@ -1,24 +1,24 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
+import {IUser} from '../interfaces/IUser';
 
 @Injectable()
 export class DataService {
 
-  private typeSource = new BehaviorSubject<string>(null);
-  types = this.typeSource.asObservable();
+  private isLoggedInSource = new BehaviorSubject<boolean>(null);
+  isLoggedIn = this.isLoggedInSource.asObservable();
 
-  private brandSource = new BehaviorSubject<string>(null);
-  brands = this.brandSource.asObservable();
+  private userDataSource = new BehaviorSubject<IUser>(null);
+  userData = this.userDataSource.asObservable();
 
   constructor() {
   }
 
-  updateTypes(types: any) {
-    this.typeSource.next(types);
+  updateIsLoggedIn(isLoggedIn: boolean) {
+    this.isLoggedInSource.next(isLoggedIn);
   }
 
-  updateBrands(brands: any) {
-    this.brandSource.next(brands);
+  updateUserData(userData: IUser) {
+    this.userDataSource.next(userData);
   }
-
 }

@@ -21,13 +21,14 @@ export class AuthService {
   }
 
   logout() {
-    return this.http.post<IResponse<any>>(`${Constants.BASE_API_URL}/logout`, {}, {
-      headers: {
-        'Auth-Check': ''
-      }
-    }).pipe(map(data => {
-      this.removeToken();
-    }));
+    this.removeToken();
+    // return this.http.post<IResponse<any>>(`${Constants.BASE_API_URL}/logout`, {}, {
+    //   headers: {
+    //     'Auth-Check': ''
+    //   }
+    // }).pipe(map(data => {
+    //   this.removeToken();
+    // }));
   }
 
   public getToken() {
@@ -45,7 +46,6 @@ export class AuthService {
 
   public isAuthenticated(): boolean {
     const token = this.getToken();
-    // return !!token && tokenNotExpired('token', token);
     return !!token;
   }
 

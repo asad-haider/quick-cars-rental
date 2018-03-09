@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, NgZone, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, Input, NgZone, OnInit, ViewChild} from '@angular/core';
 import {initClientSaysSlider, initAreaSlider, initRentCarSlider} from '../../../assets/js/sliders';
 import {BrandService} from '../../services/brand.service';
 import {TypeService} from '../../services/type.service';
@@ -8,6 +8,8 @@ import {ListingService} from '../../services/listing.service';
 import {Constants} from '../../constants';
 import {ActivatedRoute} from '@angular/router';
 import {INews} from '../../interfaces/INews';
+import {IUser} from '../../interfaces/IUser';
+import {AuthService} from '../../services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -34,15 +36,18 @@ export class HomeComponent implements OnInit, AfterViewInit {
   @ViewChild('dropOfAddress')
   public dropOfAddress: ElementRef;
 
-
   public BASE_URL = Constants.BASE_URL;
 
   featuredListings: IListing.ListingItem[];
   featuredNews: INews[];
 
+  public isLoggedIn: boolean;
+  public userData: IUser;
+
   constructor(private _brandService: BrandService, private _typeService: TypeService,
               private mapsAPILoader: MapsAPILoader, private ngZone: NgZone, private _dataService: DataService,
-              private _listingService: ListingService, private _route: ActivatedRoute) {
+              private _listingService: ListingService, private _route: ActivatedRoute,
+              private _authService: AuthService) {
   }
 
   ngOnInit() {
@@ -50,6 +55,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.getTypes();
     this.setCurrentPosition();
     this.loadMap();
+    this._dataService.isLoggedIn.subscribe(isLoggedIn => this.isLoggedIn = isLoggedIn);
+    this._dataService.userData.subscribe(userData => this.userData = userData);
 
     this._route.data
       .subscribe((data: { featuredListings: IListing.ListingItem[] }) => {
@@ -107,6 +114,9 @@ export class HomeComponent implements OnInit, AfterViewInit {
           }
           this.pickupLatitude = place.geometry.location.lat();
           this.pickupLongitude = place.geometry.location.lng();
+
+          this.latitude = place.geometry.location.lat();
+          this.longitude = place.geometry.location.lng();
           this.zoom = 12;
         });
       });
@@ -122,10 +132,22 @@ export class HomeComponent implements OnInit, AfterViewInit {
           }
           this.dropOfLatitude = place.geometry.location.lat();
           this.dropOfLongitude = place.geometry.location.lng();
+
+          this.latitude = place.geometry.location.lat();
+          this.longitude = place.geometry.location.lng();
+
           this.zoom = 12;
         });
       });
     });
+  }
+
+  logout() {
+    this._authService.logout();
+    this.isLoggedIn = this._authService.isAuthenticated();
+    this.userData = this._authService.getUserInfo();
+    this._dataService.updateIsLoggedIn(this.isLoggedIn);
+    this._dataService.updateUserData(this.userData);
   }
 
   ngAfterViewInit(): void {

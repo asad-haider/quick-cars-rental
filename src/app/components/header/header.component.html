@@ -36,9 +36,9 @@
                   <li class="fa fa-envelope"><a href="mailto:info@domain.com">info@domain.com</a></li>
                 </ul>
                 <ul class="topbar-right">
-                  <li><a *ngIf="!isLoggedIn" routerLink="/register" routerLinkActive="active-link">Account</a></li>
-                  <li><a *ngIf="isLoggedIn" (click)="logout()">Logout</a></li>
-                  <li><a *ngIf="isLoggedIn">Welcome {{userData.name}}</a></li>
+                  <li *ngIf="!isLoggedIn"><a routerLink="/register" routerLinkActive="active-link">Account</a></li>
+                  <li *ngIf="isLoggedIn"><a [routerLink]="" (click)="logout()">Logout</a></li>
+                  <li *ngIf="isLoggedIn"><a [routerLink]="">Welcome {{userData.name}}</a></li>
                   <li><a href="#">عربى</a></li>
                   <li><a href="#">USD</a></li>
                 </ul>

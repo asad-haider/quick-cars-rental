@@ -27,9 +27,9 @@
                 <li class="fa fa-envelope"><a href="mailto:info@domain.com">info@domain.com</a></li>
               </ul>
               <ul class="topbar-right">
-                <li><a *ngIf="!isLoggedIn" routerLink="/register" routerLinkActive="active-link">Account</a></li>
-                <li><a *ngIf="isLoggedIn" (click)="logout()">Logout</a></li>
-                <li><a *ngIf="isLoggedIn">Welcome {{userData.name}}</a></li>
+                <li *ngIf="!isLoggedIn"><a routerLink="/register" routerLinkActive="active-link">Account</a></li>
+                <li *ngIf="isLoggedIn"><a [routerLink]="" (click)="logout()">Logout</a></li>
+                <li *ngIf="isLoggedIn"><a [routerLink]="">Welcome {{userData.name}}</a></li>
                 <li><a href="#">عربى</a></li>
                 <li><a href="#">USD</a></li>
               </ul>
@@ -239,9 +239,9 @@
             </div>
           </div>
           <div class="col-xs-12 col-sm-7 col-md-7">
-            <a [routerLink]="['/car-listings/details', featuredListing.id]">
-              <img src="{{BASE_URL}}/resize/{{featuredListing.image_url}}">
-            </a>
+            <!--<a [routerLink]="['/car-listings/details', featuredListing.id]">-->
+            <img src="{{BASE_URL}}/resize/{{featuredListing.image_url}}/700/360">
+            <!--</a>-->
           </div>
         </div>
       </div>
