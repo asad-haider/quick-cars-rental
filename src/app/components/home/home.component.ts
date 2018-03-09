@@ -1,12 +1,12 @@
 import {AfterViewInit, Component, ElementRef, Input, NgZone, OnInit, ViewChild} from '@angular/core';
-import {initClientSaysSlider, initAreaSlider, initRentCarSlider, init} from '../../../assets/js/sliders';
+import {initClientSaysSlider, initAreaSlider, initRentCarSlider} from '../../../assets/js/sliders';
 import {BrandService} from '../../services/brand.service';
 import {TypeService} from '../../services/type.service';
 import {DataService} from '../../services/data.service';
 import {MapsAPILoader} from '@agm/core';
 import {ListingService} from '../../services/listing.service';
 import {Constants} from '../../constants';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {INews} from '../../interfaces/INews';
 import {IUser} from '../../interfaces/IUser';
 import {AuthService} from '../../services/auth.service';
@@ -49,7 +49,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   constructor(private _brandService: BrandService, private _typeService: TypeService,
               private mapsAPILoader: MapsAPILoader, private ngZone: NgZone, private _dataService: DataService,
               private _listingService: ListingService, private _route: ActivatedRoute,
-              private _authService: AuthService) {
+              private _authService: AuthService, private _router: Router) {
   }
 
   ngOnInit() {
@@ -150,6 +150,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.userData = this._authService.getUserInfo();
     this._dataService.updateIsLoggedIn(this.isLoggedIn);
     this._dataService.updateUserData(this.userData);
+    this._router.navigate(['']);
   }
 
   ngAfterViewInit(): void {

@@ -40,6 +40,7 @@ import {FeaturedListingResolve} from './resolvers/featuredlisting.resolve';
 import {FeaturedNewsResolve} from './resolvers/featurednews.resolve';
 import {OwlDateTimeModule, OwlNativeDateTimeModule} from 'ng-pick-datetime';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {ProfileComponent} from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -63,8 +64,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     ArrayFilter,
 
     BreadcrumbComponent,
-
-    SubscriptionComponent
+    SubscriptionComponent,
+    ProfileComponent
   ],
   imports: [
     AgmCoreModule.forRoot({

@@ -13,6 +13,7 @@ import {RegisterComponent} from './components/register/register.component';
 import {ReservationComponent} from './components/reservation/reservation.component';
 import {FeaturedListingResolve} from './resolvers/featuredlisting.resolve';
 import {FeaturedNewsResolve} from './resolvers/featurednews.resolve';
+import {ProfileComponent} from './components/profile/profile.component';
 
 const routes: Routes = [
     {
@@ -121,6 +122,14 @@ const routes: Routes = [
           data: {
             title: 'Reservation',
             breadcrumb: 'Reservation'
+          }
+        },
+        {
+          path: 'profile',
+          component: ProfileComponent,
+          data: {
+            title: 'Profile',
+            breadcrumb: 'Profile'
           }
         },
       ],

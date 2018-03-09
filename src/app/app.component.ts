@@ -60,12 +60,6 @@ export class AppComponent implements OnInit {
     this.userData = this._authService.getUserInfo();
     this._dataService.updateIsLoggedIn(this.isLoggedIn);
     this._dataService.updateUserData(this.userData);
-
-    // this._authService.logout().subscribe(
-    //   data => {
-    //     console.log(data);
-    //   },
-    //   err => console.error(err),
-    // );
+    this._router.navigate(['']);
   }
 }

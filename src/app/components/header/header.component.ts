@@ -17,7 +17,7 @@ export class HeaderComponent implements OnInit {
   @Input() userData: IUser;
   @Output() logoutEvent = new EventEmitter();
 
-  constructor(public _router: Router, private _authService: AuthService) {
+  constructor(public _router: Router) {
   }
 
   ngOnInit() {
