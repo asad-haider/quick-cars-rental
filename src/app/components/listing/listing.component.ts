@@ -14,6 +14,7 @@ import {Constants} from '../../constants';
 export class ListingComponent implements OnInit, AfterViewInit {
 
   public categories;
+  public isLoading = true;
   public brands;
   public BASE_URL = Constants.BASE_URL;
   public listingResponse: IPaginateResponse<IListing.ListingItem[]>;
@@ -61,6 +62,7 @@ export class ListingComponent implements OnInit, AfterViewInit {
     this._listingService.getListings(this.filter)
       .subscribe(
         data => {
+          this.isLoading = false;
           this.listingResponse = data.Result;
         },
         err => console.error(err)
@@ -71,9 +73,17 @@ export class ListingComponent implements OnInit, AfterViewInit {
     this._listingService.getListingsAtUrl(`${url}?page=${pageNumber}`, this.filter)
       .subscribe(
         data => {
+          this.isLoading = false;
           this.listingResponse = data.Result;
         },
         err => console.error(err)
       );
+  }
+
+  init() {
+    if (!this.isLoading) {
+      init();
+      this.isLoading = true;
+    }
   }
 }

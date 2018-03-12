@@ -17,18 +17,19 @@ export class AuthService {
       .pipe(map(data => {
         this.setToken(data.token);
         this.setUserData(data.Result.user);
+        return data;
       }));
   }
 
   logout() {
-    this.removeToken();
-    // return this.http.post<IResponse<any>>(`${Constants.BASE_API_URL}/logout`, {}, {
-    //   headers: {
-    //     'Auth-Check': ''
-    //   }
-    // }).pipe(map(data => {
-    //   this.removeToken();
-    // }));
+    return this.http.post<IResponse<any>>(`${Constants.BASE_API_URL}/logout`, {}, {
+      headers: {
+        'Auth-Check': ''
+      }
+    }).pipe(map(data => {
+      this.removeToken();
+      return data;
+    }));
   }
 
   public getToken() {
@@ -63,6 +64,14 @@ export class AuthService {
 
   updateProfile(payload) {
     return this.http.post<IResponse<{ user: IUser }>>(`${Constants.BASE_API_URL}/updateProfile`, payload, {
+      headers: {
+        'Auth-Check': ''
+      }
+    });
+  }
+
+  changePassword(payload) {
+    return this.http.post<IResponse<any>>(`${Constants.BASE_API_URL}/changePassword`, payload, {
       headers: {
         'Auth-Check': ''
       }

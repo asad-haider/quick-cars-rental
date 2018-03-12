@@ -97,5 +97,6 @@ module.exports = {
     $('.s-equal').matchHeight();
     $('.content-box').matchHeight();
     $('.third-listing').matchHeight();
+    $('.l-product-bx').matchHeight();
   }
 };

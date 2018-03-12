@@ -52,9 +52,7 @@
                       </div>
 
                       <div class="col-xs-12 col-sm-12 col-md-12">
-                        <a [routerLink]="" (click)="updateProfile()">
-                          <img src="../../../assets/images/update-btn.png" class="marg-top-40">
-                        </a>
+                        <input (click)="updateProfile()" type="submit" value="Update Profile" class="reserv-btn-sub">
                       </div>
                     </div>
                   </form>
@@ -64,19 +62,21 @@
                   <form>
                     <div class="row">
                       <div class="col-xs-12 col-sm-12 col-md-12">
-                        <input type="text" class="form-control" placeholder="Old Password">
+                        <input type="text" class="form-control" placeholder="Old Password"
+                               name="inputOldPassword" [(ngModel)]="changePasswordPayload.old_password">
                       </div>
                       <div class="col-xs-12 col-sm-12 col-md-6">
-                        <input type="text" class="form-control" placeholder="New Password">
+                        <input type="text" class="form-control" placeholder="New Password"
+                               name="inputNewPassword" [(ngModel)]="changePasswordPayload.password">
                       </div>
                       <div class="col-xs-12 col-sm-12 col-md-6">
-                        <input type="tel" class="form-control" placeholder="Repeat New Password">
+                        <input type="tel" class="form-control" placeholder="Repeat New Password"
+                               name="inputPasswordConfirmation" [(ngModel)]="changePasswordPayload.password_confirmation">
                       </div>
-
                       <div class="col-xs-12 col-sm-12 col-md-12">
-                        <a href="#"><img src="../../../assets/images/update-btn.png" class="img-responsive marg-top-40"></a>
+                        <input (click)="changePassword()" type="submit" value="Change Password" class="reserv-btn-sub">
+                        <!--<a href="#"><img src="../../../assets/images/update-btn.png" class="img-responsive marg-top-40"></a>-->
                       </div>
-
                     </div>
                   </form>
                 </div>

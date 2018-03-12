@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, Input, NgZone, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, Input, NgZone, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
 import {initClientSaysSlider, initAreaSlider, initRentCarSlider} from '../../../assets/js/sliders';
 import {BrandService} from '../../services/brand.service';
 import {TypeService} from '../../services/type.service';
@@ -11,6 +11,7 @@ import {INews} from '../../interfaces/INews';
 import {IUser} from '../../interfaces/IUser';
 import {AuthService} from '../../services/auth.service';
 import {} from '@types/googlemaps';
+import {ToastsManager} from 'ng2-toastr';
 
 @Component({
   selector: 'app-home',
@@ -50,7 +51,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
   constructor(private _brandService: BrandService, private _typeService: TypeService,
               private mapsAPILoader: MapsAPILoader, private ngZone: NgZone, private _dataService: DataService,
               private _listingService: ListingService, private _route: ActivatedRoute,
-              private _authService: AuthService, private _router: Router) {
+              private _authService: AuthService, private _router: Router, public toastr: ToastsManager, vcr: ViewContainerRef) {
+    this.toastr.setRootViewContainerRef(vcr);
   }
 
   ngOnInit() {
@@ -147,12 +149,16 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   logout() {
-    this._authService.logout();
-    this.isLoggedIn = this._authService.isAuthenticated();
-    this.userData = this._authService.getUserInfo();
-    this._dataService.updateIsLoggedIn(this.isLoggedIn);
-    this._dataService.updateUserData(this.userData);
-    this._router.navigate(['']);
+    this._authService.logout().subscribe(res => {
+      this.toastr.success(res.Message, 'Success');
+      this.isLoggedIn = this._authService.isAuthenticated();
+      this.userData = this._authService.getUserInfo();
+      this._dataService.updateIsLoggedIn(this.isLoggedIn);
+      this._dataService.updateUserData(this.userData);
+      this._router.navigate(['']);
+    }, err => {
+      this.toastr.error(err.error.Message, 'Error');
+    });
   }
 
   ngAfterViewInit(): void {

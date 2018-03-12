@@ -49,7 +49,8 @@
       <div class="listing-product">
         <div class="row">
           <div class="col-xs-12 col-sm-6 col-md-4"
-               *ngFor="let listing of listingResponse?.data">
+               *ngFor="let listing of listingResponse?.data; let last = last;">
+            {{last ? init() : ''}}
             <div class="l-product-bx">
               <div class="p-head">
                 <h3>{{listing.name}}</h3>

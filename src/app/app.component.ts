@@ -1,9 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewContainerRef} from '@angular/core';
 import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
 import {filter, map} from 'rxjs/operators';
 import {IUser} from './interfaces/IUser';
 import {AuthService} from './services/auth.service';
 import {DataService} from './services/data.service';
+import {ToastsManager} from 'ng2-toastr';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,8 @@ import {DataService} from './services/data.service';
 })
 export class AppComponent implements OnInit {
   constructor(private _router: Router, private _activatedRoute: ActivatedRoute, private _authService: AuthService,
-              private _dataService: DataService) {
+              private _dataService: DataService, public toastr: ToastsManager, vcr: ViewContainerRef) {
+    this.toastr.setRootViewContainerRef(vcr);
   }
 
   public pageTitle: string;
@@ -55,11 +57,15 @@ export class AppComponent implements OnInit {
   }
 
   logout() {
-    this._authService.logout();
-    this.isLoggedIn = this._authService.isAuthenticated();
-    this.userData = this._authService.getUserInfo();
-    this._dataService.updateIsLoggedIn(this.isLoggedIn);
-    this._dataService.updateUserData(this.userData);
-    this._router.navigate(['']);
+    this._authService.logout().subscribe(res => {
+      this.toastr.success(res.Message, 'Success');
+      this.isLoggedIn = this._authService.isAuthenticated();
+      this.userData = this._authService.getUserInfo();
+      this._dataService.updateIsLoggedIn(this.isLoggedIn);
+      this._dataService.updateUserData(this.userData);
+      this._router.navigate(['']);
+    }, err => {
+      this.toastr.error(err.error.Message, 'Error');
+    });
   }
 }

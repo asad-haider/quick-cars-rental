@@ -29,9 +29,7 @@
               <ul class="topbar-right">
                 <li *ngIf="!isLoggedIn"><a routerLink="/register" routerLinkActive="active-link">Account</a></li>
                 <li *ngIf="isLoggedIn"><a [routerLink]="" (click)="logout()">Logout</a></li>
-                <li *ngIf="isLoggedIn">
-                  <a routerLink="/profile" routerLinkActive="active-link">Welcome {{userData.name}}</a></li>
-                <li><a href="#">عربى</a></li>
+                <li *ngIf="isLoggedIn"><a routerLink="/profile">Welcome {{userData.name}}</a></li>
                 <li><a href="#">عربى</a></li>
                 <li><a href="#">USD</a></li>
               </ul>
@@ -80,23 +78,21 @@
                 </div>
               </div>
 
-              <div class="">
+              <div class="label-form l-datepicker">
                 <div class="form-group">
                   <label for="inputPickupDate" class="col-form-label">Pickup Date</label>
                   <input [(ngModel)]="reservation.pickUpDateTime"
-                         class="form-control"
-                         name="inputPickupDate" id="inputPickupDate"
+                         class="form-control" name="inputPickupDate" id="inputPickupDate"
                          [owlDateTimeTrigger]="pickupDateTimePicker" [owlDateTime]="pickupDateTimePicker">
                   <owl-date-time #pickupDateTimePicker></owl-date-time>
                 </div>
               </div>
 
-              <div class="">
+              <div class="label-form l-datepicker">
                 <div class="form-group">
                   <label for="inputDropOfDateTime" class="col-form-label">Dropping Date</label>
                   <input [(ngModel)]="reservation.dropOfDateTime"
-                         name="inputDropOfDateTime" id="inputDropOfDateTime"
-                         class="form-control"
+                         name="inputDropOfDateTime" id="inputDropOfDateTime" class="form-control"
                          [owlDateTimeTrigger]="dropOfDateTimePicker" [owlDateTime]="dropOfDateTimePicker">
                   <owl-date-time #dropOfDateTimePicker></owl-date-time>
                 </div>

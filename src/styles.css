@@ -4,3 +4,31 @@
 .active-link {
   color: #f05423 !important;
 }
+
+input.reserv-btn-sub {
+  height: 62px;
+  margin-top: 50px;
+  padding: 0px 25px;
+  border: 0px;
+  background: url(assets/images/btn-background.png);
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #fff;
+  background-size: 100% 100%;
+}
+
+.l-datepicker input {
+  width: 70%;
+  float: right;
+  height: 40px;
+  border-radius: 0px;
+  border: 0px;
+  border-left: 1px solid #cacaca;
+  margin-top: 10px;
+  box-shadow: 0px 0px !important;
+}
+
+.slider-form input {
+  color: #b3b3b3 !important;
+}

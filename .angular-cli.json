@@ -28,7 +28,8 @@
         "assets/css/slick.css",
         "assets/css/bootstrap-datetimepicker.min.css",
         "assets/images/logos.png",
-        "styles.css"
+        "styles.css",
+        "../node_modules/ng2-toastr/bundles/ng2-toastr.min.css"
       ],
       "scripts": [
         "assets/js/jquery-3.2.1.min.js",
@@ -40,7 +41,8 @@
         "assets/js/bootstrap-datetimepicker.js",
         "assets/js/bootstrap-datetimepicker.fr.js",
         "assets/js/custom.js",
-        "assets/js/functions.js"
+        "assets/js/functions.js",
+        "../node_modules/ng2-toastr/bundles/ng2-toastr.min.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

@@ -41,6 +41,8 @@ import {FeaturedNewsResolve} from './resolvers/featurednews.resolve';
 import {OwlDateTimeModule, OwlNativeDateTimeModule} from 'ng-pick-datetime';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ProfileComponent} from './components/profile/profile.component';
+import {ToastModule, ToastOptions} from 'ng2-toastr';
+import {ToasterConfigurations} from './configurations/toaster-configurations';
 
 @NgModule({
   declarations: [
@@ -83,6 +85,7 @@ import {ProfileComponent} from './components/profile/profile.component';
     NgProgressHttpModule,
     OwlDateTimeModule,
     OwlNativeDateTimeModule,
+    ToastModule.forRoot()
   ],
   providers: [
     BrandService,
@@ -105,6 +108,7 @@ import {ProfileComponent} from './components/profile/profile.component';
     },
     FeaturedListingResolve,
     FeaturedNewsResolve,
+    {provide: ToastOptions, useClass: ToasterConfigurations},
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA]
