@@ -54,24 +54,20 @@
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <input type="text" class="form-control"
-                         [(ngModel)]="registerPayload.name"
+                         [(ngModel)]="registerPayload.fname"
                          name="firstName"
                          placeholder="First Name">
                 </div>
                 <div class="form-group col-md-6">
-                  <input type="text" class="form-control" placeholder="Last Name">
+                  <input type="text" class="form-control" placeholder="Last Name"
+                         [(ngModel)]="registerPayload.lname" name="lastName">
                 </div>
               </div>
               <div class="form-row">
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-12">
                   <input type="text" class="form-control" placeholder="Email"
                          [(ngModel)]="registerPayload.email"
                          name="email">
-                </div>
-                <div class="form-group col-md-6">
-                  <input type="text" class="form-control" placeholder="Username"
-                         [(ngModel)]="registerPayload.username"
-                         name="username">
                 </div>
               </div>
               <div class="form-row">

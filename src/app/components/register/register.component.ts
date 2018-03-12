@@ -15,8 +15,9 @@ export class RegisterComponent implements OnInit {
   };
 
   public registerPayload = {
+    fname: null,
+    lname: null,
     name: null,
-    username: null,
     email: null,
     password: null,
     password_confirmation: null,
@@ -39,6 +40,7 @@ export class RegisterComponent implements OnInit {
   }
 
   register() {
+    this.registerPayload.name = this.registerPayload.fname + ' ' + this.registerPayload.lname;
     this._authService.register(this.registerPayload).subscribe(res => {
       this._router.navigate(['']);
     });

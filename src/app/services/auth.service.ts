@@ -16,7 +16,7 @@ export class AuthService {
     return this.http.post<IResponse<any>>(`${Constants.BASE_API_URL}/login`, payload)
       .pipe(map(data => {
         this.setToken(data.token);
-        localStorage.setItem('userData', JSON.stringify(data.Result.user));
+        this.setUserData(data.Result.user);
       }));
   }
 
@@ -39,6 +39,10 @@ export class AuthService {
     localStorage.setItem('token', token);
   }
 
+  public setUserData(user) {
+    localStorage.setItem('userData', JSON.stringify(user));
+  }
+
   public removeToken() {
     localStorage.removeItem('token');
     localStorage.removeItem('userData');
@@ -55,5 +59,13 @@ export class AuthService {
 
   register(payload) {
     return this.http.post<IResponse<any>>(`${Constants.BASE_API_URL}/register`, payload);
+  }
+
+  updateProfile(payload) {
+    return this.http.post<IResponse<{ user: IUser }>>(`${Constants.BASE_API_URL}/updateProfile`, payload, {
+      headers: {
+        'Auth-Check': ''
+      }
+    });
   }
 }

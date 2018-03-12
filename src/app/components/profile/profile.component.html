@@ -27,26 +27,35 @@
                     <div class="row">
                       <div class="col-xs-12 col-sm-12 col-md-6">
                         <input type="text" class="form-control" placeholder="First Name *"
-                               name="inputFirstName" [(ngModel)]="userData.name">
+                               name="inputFirstName" [(ngModel)]="userData.fname">
                       </div>
                       <div class="col-xs-12 col-sm-12 col-md-6">
                         <input type="text" class="form-control" placeholder="Last Name * "
-                               name="inputLastName" [(ngModel)]="userData.name">
+                               name="inputLastName" [(ngModel)]="userData.lname">
                       </div>
                       <div class="col-xs-12 col-sm-12 col-md-6">
-                        <input type="tel" class="form-control" placeholder="Phone *">
+                        <input type="tel" class="form-control" placeholder="Phone *"
+                               name="inputPhone" [(ngModel)]="userData.phone">
                       </div>
                       <div class="col-xs-12 col-sm-12 col-md-6">
                         <input type="email" class="form-control" placeholder="Email *"
+                               [disabled]="true"
                                name="inputEmail" [(ngModel)]="userData.email">
                       </div>
                       <div class="col-xs-12 col-sm-12 col-md-6">
-                        <input type="text" class="form-control" placeholder="City">
+                        <input type="text" class="form-control" placeholder="City"
+                               name="inputCity" [(ngModel)]="userData.city">
                       </div>
                       <div class="col-xs-12 col-sm-12 col-md-6">
-                        <input type="text" class="form-control" placeholder="Country">
+                        <input type="text" class="form-control" placeholder="Country"
+                               name="inputCountry" [(ngModel)]="userData.country">
                       </div>
 
+                      <div class="col-xs-12 col-sm-12 col-md-12">
+                        <a [routerLink]="" (click)="updateProfile()">
+                          <img src="../../../assets/images/update-btn.png" class="marg-top-40">
+                        </a>
+                      </div>
                     </div>
                   </form>
                 </div>

@@ -24,6 +24,13 @@ export class ProfileComponent implements OnInit, AfterViewInit {
   ngOnInit() {
   }
 
+  updateProfile() {
+    this.userData.name = this.userData.fname + ' ' + this.userData.lname;
+    this._authService.updateProfile(this.userData).subscribe(res => {
+      this._authService.setUserData(res.Result.user);
+    });
+  }
+
   ngAfterViewInit(): void {
     initTabs();
   }

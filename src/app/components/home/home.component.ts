@@ -10,6 +10,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {INews} from '../../interfaces/INews';
 import {IUser} from '../../interfaces/IUser';
 import {AuthService} from '../../services/auth.service';
+import {} from '@types/googlemaps';
 
 @Component({
   selector: 'app-home',
@@ -114,6 +115,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
           if (place.geometry === undefined || place.geometry === null) {
             return;
           }
+
           this.pickupLatitude = place.geometry.location.lat();
           this.pickupLongitude = place.geometry.location.lng();
 
